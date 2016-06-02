@@ -6,9 +6,9 @@
 
     <title>RunBeat</title>
 
-    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+
     <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="app/app.module.js"></script>
     <script src="app/app.routes.js"></script>
@@ -18,45 +18,66 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top hidden-xs">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand visible-xs-inline-block" href="#">RunBeat</a>
-        </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="hidden-xs"><a href="#"><img src="assets/img/Logo.png" class="brand"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <li uib-dropdown>
+                    <a role="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
                         <figure>
                             <img src="assets/img/Challenge.png" class="menuItem">
                             <figcaption>Challenges<span class="caret"></span></figcaption>
                         </figure></a>
-                    <a href="#" class="dropdown-toggle visible-xs-inline-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        Challenges</a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
                         <li><a href="#">Create New</a></li>
                         <li><a href="#">Manage Open</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <li  uib-dropdown>
+                    <a role="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
                         <figure>
                             <img src="assets/img/Profile.jpg" class="menuItem">
                             <figcaption>Username<span class="caret"></span></figcaption>
                         </figure></a>
-                    <a href="#" class="dropdown-toggle visible-xs-inline-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                        <li><a ui-sref="profile">Profile</a></li>
+                        <li><a href="#">Friend list</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" ng-click="showMobileNav = !showMobileNav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">RunBeat</a>
+        </div>
+        <div class="collapse navbar-collapse" ng-class="{in: showMobileNav}">
+            <ul class="nav navbar-nav">
+                <li uib-dropdown>
+                    <a role="button" class="visible-xs" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
+                        Challenges</a>
+                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                        <li><a href="#">Create New</a></li>
+                        <li><a href="#">Manage Open</a></li>
+                    </ul>
+                </li>
+                <li uib-dropdown>
+                    <a role="button" class="visible-xs" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
                         Username</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Profile</a></li>
+                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                        <li><a ui-sref="profile">Profile</a></li>
                         <li><a href="#">Friend list</a></li>
                         <li><a href="#">Logout</a></li>
                     </ul>
@@ -71,6 +92,7 @@
 <div class="slim-header visible-xs-inline-block"></div>
 
 <div class="container">
+
     <!-- start dynamic content -->
     <div ui-view=""></div>
     <!-- end dynamic content -->

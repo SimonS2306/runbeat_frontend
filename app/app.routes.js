@@ -1,4 +1,4 @@
-angular.module('angularstrapApp')
+angular.module('RunBeatApp')
     .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
 
         // any unknown URLS go to 404
@@ -10,9 +10,7 @@ angular.module('angularstrapApp')
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'app/components/home/views/home.view.html',
-                controller: "homeController",
-                controllerAs: 'ctrl'
+                templateUrl: 'app/components/home/home.view.html'
             })
             .state('404', {
                 url: '/404',
@@ -20,8 +18,6 @@ angular.module('angularstrapApp')
             })
             .state('profile', {
                 url: '/profile',
-                templateUrl: 'app/components/profile/profile.view.html',
-                controller: 'profileController',
-                controllerAs: 'ctrl'
+                templateUrl: 'app/components/profile/profile.view.html'
             });
     }]);
