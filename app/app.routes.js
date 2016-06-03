@@ -19,5 +19,9 @@ angular.module('RunBeatApp')
             .state('profile', {
                 url: '/profile',
                 templateUrl: 'app/components/profile/profile.view.html'
+            })
+            .state('friendsearch',{
+                url: '/friendsearch',
+                templateUrl: 'app/components/friendsearch/friendsearch.view.html'
             });
     }]);
