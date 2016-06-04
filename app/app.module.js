@@ -6,7 +6,8 @@ angular.
 
     module('RunBeatApp', [
         'ui.router',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'checklist-model'
     ])
 
     .constant('CONFIG',

@@ -23,5 +23,17 @@ angular.module('RunBeatApp')
             .state('friendsearch',{
                 url: '/friendsearch',
                 templateUrl: 'app/components/friendsearch/friendsearch.view.html'
+            })
+            .state('login',{
+                url: '/login',
+                templateUrl: 'app/shared/login.view.html'
+            })
+            .state('signup', {
+                url: '/signup',
+                templateUrl: 'app/shared/signup.view.html'
+            })
+            .state('manage',{
+                url: '/manage',
+                templateUrl: 'app/components/manage/manage.view.html'
             });
     }]);

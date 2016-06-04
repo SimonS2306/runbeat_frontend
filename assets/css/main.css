@@ -22,5 +22,13 @@ div.slim-header{
 }
 
 a.footer{
-    margin: 15px;
+    margin: 20px;
+}
+
+p.navbar-btn{
+    margin-top: 16px;
+}
+
+div.form-float-center{
+    text-align: center;
 }

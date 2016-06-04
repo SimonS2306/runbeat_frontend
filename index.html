@@ -10,6 +10,7 @@
     <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
 
     <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src='node_modules/checklist-model/checklist-model.js'></script>
     <script src="app/app.module.js"></script>
     <script src="app/app.routes.js"></script>
 
@@ -25,7 +26,14 @@
                 <li class="hidden-xs"><a href="#"><img src="assets/img/Logo.png" class="brand"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li uib-dropdown>
+                <li>
+                    <p class="navbar-btn">
+                        <a ui-sref="login" class="btn btn-default btn-block">Login</a>
+                        <br class="navbar-login">
+                        <a ui-sref="signup" class="btn btn-primary btn-block">Sign Up</a>
+                    </p>
+                </li>
+                <!--<li uib-dropdown>
                     <a role="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
                         <figure>
                             <img src="assets/img/Challenge.png" class="menuItem">
@@ -33,7 +41,7 @@
                         </figure></a>
                     <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
                         <li><a href="#">Create New</a></li>
-                        <li><a href="#">Manage Open</a></li>
+                        <li><a ui-sref="manage">Manage Open</a></li>
                     </ul>
                 </li>
                 <li  uib-dropdown>
@@ -47,13 +55,13 @@
                         <li><a ui-sref="friendsearch">Friend list</a></li>
                         <li><a href="#">Logout</a></li>
                     </ul>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div>
 </nav>
 
-<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+<!--<nav class="navbar navbar-default navbar-fixed-top visible-xs">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" ng-click="showMobileNav = !showMobileNav">
@@ -85,7 +93,7 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav>-->
 
 <!-- used to not have hidden content under variable header-->
 <div class="broad-header hidden-xs"></div>
