@@ -32,3 +32,23 @@ p.navbar-btn{
 div.form-float-center{
     text-align: center;
 }
+
+div.profile-panel{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+div.profile-picture{
+    padding: 1%;
+    text-align: center;
+}
+
+img.size-picture{
+    width: 80%;
+    height: 80%;
+}
+
+input[type=file] {
+    margin: 0 auto;
+    margin-top: 5px;
+}
