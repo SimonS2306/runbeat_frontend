@@ -7,12 +7,16 @@
     <title>RunBeat</title>
 
     <script src="node_modules/angular/angular.min.js"></script>
-    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <!--<script src="node_modules/angular-animate/angular-animate.js"></script>-->
+    <!--<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>-->
 
     <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src='node_modules/checklist-model/checklist-model.js'></script>
     <script src="app/app.module.js"></script>
     <script src="app/app.routes.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="app/components/home/home.ctrl.js"></script>
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/main.css">
@@ -23,7 +27,7 @@
     <div class="container">
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="hidden-xs"><a href="#"><img src="assets/img/Logo.png" class="brand"></a></li>
+                <li class="hidden-xs"><a href="#"><img src="assets/img/Run_Beat_Logo.png" class="brand"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <!--<li>
@@ -61,7 +65,7 @@
     </div>
 </nav>
 
-<!--<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" ng-click="showMobileNav = !showMobileNav">
@@ -93,17 +97,19 @@
             </ul>
         </div>
     </div>
-</nav>-->
+</nav>
 
 <!-- used to not have hidden content under variable header-->
 <div class="broad-header hidden-xs"></div>
 <div class="slim-header visible-xs-inline-block"></div>
 
+<!-- start dynamic content -->
+<div ui-view=""></div>
+<!-- end dynamic content -->
+
+
 <div class="container">
 
-    <!-- start dynamic content -->
-    <div ui-view=""></div>
-    <!-- end dynamic content -->
 
     <hr>
     <div class="footer">
@@ -111,6 +117,8 @@
         <a class="footer" href="#">FAQ</a>
         <a class="footer" href="#">Contact</a>
     </div>
+
+    <br>
 </div>
 
 </body>

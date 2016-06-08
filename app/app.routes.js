@@ -10,7 +10,8 @@ angular.module('RunBeatApp')
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'app/components/home/home.view.html'
+                templateUrl: 'app/components/home/home.view.html',
+                controller: 'homeController'
             })
             .state('404', {
                 url: '/404',

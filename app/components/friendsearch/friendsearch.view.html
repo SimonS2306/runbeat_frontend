@@ -1,1 +1,65 @@
-<h1>Friendsearch</h1>
+<head><style>
+
+    p{
+        font-size: 22px;
+        font-weight: bold;
+        font-style: italic;
+        color: #3e8f3e;
+        margin: 18px;
+    }
+    ul{
+        float: left;
+        border-radius: 5px;
+        border: solid 1px rgb(198,198,198);
+        padding:7px 11px;
+        background-color:transparent;
+    }
+    li{
+        flaot:left;
+        background-color: rgb(200,200,200);
+        padding : 5px 19px;
+        margin: 5px 2px 5px 0px;
+        colour:black;
+        list-style: none;
+    }
+    li:hover,li:hover a{
+        background-color:#269abc ;
+        color: white;
+    }
+    li a{
+        text-decoration-color:none ;
+        color: white;
+        Font-size: 21px;
+        font-style: italic;
+        text-shadow: 1px 0px 3px rgb(157,157,157);
+    }
+    li:nth-child(1){
+        border-radius: 4px 0px 0px 4px;
+        margin-left: 1px;
+    }
+    li:nth-child(3){
+        border-radius: 0px 4px 4px 0px;
+    }
+    .active{
+        background-color:#269abc ;
+    }
+</style></head><body>
+
+<section>
+    <ul ng-init="tab=1">
+       <li ng-class="{active:tab===1}">
+           <a href ng-click="tab=1">My Friends</a>
+       </li>
+        <li ng-class="{active:tab===2}">
+            <a href ng-click="tab=2">Friends Requests</a>
+        </li>
+        <li ng-class="{active:tab===3}">
+            <a href ng-click="tab=3">Pending Requests</a>
+        </li>
+        <br/><br/>
+        <p ng-show="tab===1">Shobhit.agrawal@tum.de <a href="#">Remove</a><br/>Cristina@rum.de<a href="#">Remove</a> </p>
+        <p ng-show="tab===2">CUrrent Friend Requests Go Here</p>
+        <p ng-show="tab===3">Pending Friends Requests go here</p>
+    </ul>
+</section>
+</body>

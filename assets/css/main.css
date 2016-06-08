@@ -14,7 +14,7 @@ img.menuItem{
 }
 
 div.broad-header{
-    margin-top: 150px;
+    margin-top: 135px;
 }
 
 div.slim-header{
@@ -51,4 +51,12 @@ img.size-picture{
 input[type=file] {
     margin: 0 auto;
     margin-top: 5px;
+}
+
+/* home.view.css */
+
+.carousel-img{
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
 }
