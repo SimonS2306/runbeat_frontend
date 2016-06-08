@@ -1,7 +1,4 @@
-div.footer{
-    text-align: center;
-}
-
+/*Header picture size*/
 img.brand{
     width: 100px;
     height: 100px;
@@ -13,14 +10,52 @@ img.menuItem{
     margin-bottom: 5px;
 }
 
+/*Alignment for login/signup buttons*/
+p.navbar-btn{
+    margin-top: 16px;
+}
+
+/*Exact header size -> no overlay for content*/
 div.broad-header{
-    margin-top: 150px;
+    margin-top: 135px;
 }
 
 div.slim-header{
     margin-top: 50px;
 }
 
+/*Footer layouting*/
+div.footer{
+    text-align: center;
+}
+
 a.footer{
-    margin: 15px;
+    margin: 20px;
+}
+
+/*Text/ Forms float center*/
+div.text-center {
+    text-align: center;
+}
+
+/*Layout of the profile + profile picture*/
+div.profile-panel{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+input[type=file] {
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+/*Sizing pictures (profile + home)*/
+div.picture-frame {
+    padding: 1%;
+    text-align: center;
+}
+
+img.size-picture{
+    width: 80%;
+    height: 80%;
 }
