@@ -17,6 +17,7 @@
     <!--Main app includes-->
     <script src="app/app.module.js"></script>
     <script src="app/app.routes.js"></script>
+    <script src="assets/js/main.js"></script>
 
     <!--Individual controllers-->
     <script src="app/shared/auth.ctrl.js"></script>
@@ -68,7 +69,7 @@
                     <ul class="dropdown-menu">
                         <li><a ui-sref="profile">Profile</a></li>
                         <li><a ui-sref="friendsearch">Friend list</a></li>
-                        <li><a href="#">Logout</a></li>
+                        <li ng-controller="logoutController"><a ng-click='logout()'>Logout</a></li>
                     </ul>
                 </li>
             </ul>

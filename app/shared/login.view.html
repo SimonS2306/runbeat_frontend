@@ -1,27 +1,26 @@
-
 <br>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
-            <div class="panel panel-default">
+                <h1 class="text-center">Sign Up</h1>
+                <br>
 
-                <form action="/login" method="post">
-                    <div class="panel-body">
-                        <fieldset class="form-group">
-                            <label for="InputUsername-Login">Username</label>
-                            <input type="text" class="form-control" id="InputUsername-Login" placeholder="Enter Username">
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="InputPassword-Login">Password</label>
-                            <input type="password" class="form-control" id="InputPassword-Login" placeholder="Enter Password">
-                        </fieldset>
+                <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+                <form class="form" ng-submit="login()">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" class="form-control" name="username" ng-model="loginForm.username" required>
                     </div>
-                    <div class="panel-footer clearfix text-center">
-                        <a ui-sref="home" type="submit" class="btn btn-primary">Login</a>
-                     </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="password" ng-model="loginForm.password" required>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary" ng-disabled="disabled">Login</button>
+                    </div>
                 </form>
-
             </div>
         </div>
     </div>
