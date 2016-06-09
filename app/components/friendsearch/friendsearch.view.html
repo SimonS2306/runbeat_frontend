@@ -1,33 +1,105 @@
-<div class="container row row-centered" >
-    <ul class="nav nav-pills navbar-centered">
-        <li role="presentation" class="active"><a href="#friends">Friends</a></li>
-        <li role="presentation"><a href="#requests">Friend Requests</a></li>
-        <li role="presentation"><a href="#search">Search</a></li>
+<div class="container text-center" >
+    <div id="content">
+        <br><br>
+    <ul id="tabs" class="nav nav-pills" data-tabs="tabs">
+        <li role="presentation" class="active"><a href="#friends" data-toggle="tab">Friends<i class="fa"></i></a></li>
+        <li role="presentation"><a href="#requests" data-toggle="tab">Friend Requests<i class="fa"></i></a></li>
+        <li role="presentation"><a href="#search" data-toggle="tab">Search<i class="fa"></i></a></li>
     </ul>
-<div class="tab-content">
+<div id="my-tab-content" class="tab-content">
     <div class="tab-pane active" id="friends">
    <h4 class="text-center">Friends</h4>
-        <div class="container1">
-            abcd
+        <div class="panel panel-default" ng-controller="friendsController">
+            <div class="row" ng-repeat="friend in friends">
+                    <div class="col-sm-4 picture-frame panel panel-default">
+                        <span class="tag">
+                            <a><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
+                        </span>
+                        <img ng-src="{{friend.image}}" class="size-picture">
+                        <div><h3>{{friend.name}}</h3></div>
+                    </div>
+            </div>
         </div>
 
     </div>
 
-    <div class="tab-pane active" id="requests">
+    <div class="tab-pane" id="requests">
         <h4 class="text-center">Friend Requests</h4>
-        <div class="container2">
-            1234
+        <div class="panel panel-default">
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <div class="col-sm-4 picture-frame">
+                        <fieldset class="row">
+                            <a ui-sref="#" type="submit" class="btn btn-primary">Accept</a>
+                            <a ui-sref="#" class="btn btn-default">Decline</a>
+                        </fieldset>
+                        <img src="assets/img/Profile.jpg" class="size-picture">
+                        <div class="panel-footer"><a href="#">Shobhit Agrawal</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <div class="col-sm-4 picture-frame">
+                        <fieldset class="row">
+                            <a ui-sref="#" type="submit" class="btn btn-primary">Accept</a>
+                            <a ui-sref="#" class="btn btn-default">Decline</a>
+                        </fieldset>
+                        <img src="assets/img/Profile.jpg" class="size-picture">
+                        <div class="panel-footer"><a href="#">Shobhit Agrawal</a></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
-    <div class="tab-pane active" id="search">
+    <div class="tab-pane" id="search">
         <h4 class="text-center">Search Friends</h4>
         <div class="container2">
-            1234
+            <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Go!</button>
+      </span>
+                <input type="text" class="form-control" placeholder="Search for Friend...">
+            </div>
         </div>
 
     </div>
 
 </div>
+</div>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $('#tabs').tab();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            if (!$tabPane.hasClass('active')) {
+                // Then activate it
+                $tabPane.parents('.tab-content')
+                        .find('.tab-pane')
+                        .each(function(index, tab) {
+                            var tabId = $(tab).attr('id'),
+                                    $li   = $('a[href="#' + tabId + '"][data-toggle="tab"]').parent();
 
+                            if (tabId === invalidTabId) {
+                                // activate the tab pane
+                                $(tab).addClass('active');
+                                // and the associated <li> element
+                                $li.addClass('active');
+                            } else {
+                                $(tab).removeClass('active');
+                                $li.removeClass('active');
+                            }
+                        });
+
+                // Focus on the field
+                $invalidFields.focus();
+            }
+        });
+
+    </script>
 </div>

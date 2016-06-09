@@ -23,7 +23,8 @@ angular.module('RunBeatApp')
             })
             .state('friendsearch',{
                 url: '/friendsearch',
-                templateUrl: 'app/components/friendsearch/friendsearch.view.html'
+                templateUrl: 'app/components/friendsearch/friendsearch.view.html',
+                controller: 'friendsController'
             })
             .state('login',{
                 url: '/login',
