@@ -1,23 +1,26 @@
-<div class="container text-center" >
+<div class="container" >
     <div id="content">
         <br><br>
-    <ul id="tabs" class="nav nav-pills" data-tabs="tabs">
-        <li role="presentation" class="active"><a href="#friends" data-toggle="tab">Friends<i class="fa"></i></a></li>
-        <li role="presentation"><a href="#requests" data-toggle="tab">Friend Requests<i class="fa"></i></a></li>
-        <li role="presentation"><a href="#search" data-toggle="tab">Search<i class="fa"></i></a></li>
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="#friends" data-toggle="pills">Friends</a></li>
+        <li role="presentation"><a href="#requests" data-toggle="pills">Friend Requests</a></li>
+        <li role="presentation"><a href="#search" data-toggle="pills">Search</a></li>
     </ul>
-<div id="my-tab-content" class="tab-content">
-    <div class="tab-pane active" id="friends">
-   <h4 class="text-center">Friends</h4>
-        <div class="panel panel-default" ng-controller="friendsController">
-            <div class="row" ng-repeat="friend in friends">
+<div class="tab-content" ng-controller="friendsController">
+    <div class="tab-pane active panel panel-default" id="friends">
+   <h2 class="text-center">Friends</h2>
+        <div class="profile-panel">
+            <div class="row">
+                <div ng-repeat="friend in friends">
                     <div class="col-sm-4 picture-frame panel panel-default">
-                        <span class="tag">
+
+                        <img ng-src="{{friend.image}}" class="size-picture">
+
+                        <div><h3>{{friend.name}}</h3></div><span class="tag">
                             <a><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
                         </span>
-                        <img ng-src="{{friend.image}}" class="size-picture">
-                        <div><h3>{{friend.name}}</h3></div>
                     </div>
+                </div>
             </div>
         </div>
 
@@ -75,31 +78,5 @@
             $('#tabs').tab();
         });
     </script>
-    <script>
-        $(document).ready(function() {
-            if (!$tabPane.hasClass('active')) {
-                // Then activate it
-                $tabPane.parents('.tab-content')
-                        .find('.tab-pane')
-                        .each(function(index, tab) {
-                            var tabId = $(tab).attr('id'),
-                                    $li   = $('a[href="#' + tabId + '"][data-toggle="tab"]').parent();
 
-                            if (tabId === invalidTabId) {
-                                // activate the tab pane
-                                $(tab).addClass('active');
-                                // and the associated <li> element
-                                $li.addClass('active');
-                            } else {
-                                $(tab).removeClass('active');
-                                $li.removeClass('active');
-                            }
-                        });
-
-                // Focus on the field
-                $invalidFields.focus();
-            }
-        });
-
-    </script>
 </div>
