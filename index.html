@@ -73,6 +73,15 @@
                     </ul>
                 </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right" ng-hide="isLoggedIn()">
+                <li>
+                    <p class="navbar-btn">
+                        <a ui-sref="login" class="btn btn-default btn-block">Login</a>
+                        <br class="navbar-login">
+                        <a ui-sref="signup" class="btn btn-primary btn-block">Sign Up</a>
+                    </p>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
