@@ -4,7 +4,7 @@
         <div class="panel panel-default">
             <div class="panel-body">
 
-                <h1 class="text-center">Sign Up</h1>
+                <h1 class="text-center">Login</h1>
                 <br>
 
                 <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
@@ -17,8 +17,9 @@
                         <label>Password</label>
                         <input type="password" class="form-control" name="password" ng-model="loginForm.password" required>
                     </div>
-                    <div>
+                    <div class="text-center">
                         <button type="submit" class="btn btn-primary" ng-disabled="disabled">Login</button>
+                        <button class="btn btn-default" ui-sref="signup">Sign Up</button>
                     </div>
                 </form>
             </div>
