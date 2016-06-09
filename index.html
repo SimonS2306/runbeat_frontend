@@ -74,13 +74,15 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right" ng-hide="isLoggedIn()">
-                <li>
+                <li class="hidden-xs">
                     <p class="navbar-btn">
                         <a ui-sref="login" class="btn btn-default btn-block">Login</a>
                         <br class="navbar-login">
                         <a ui-sref="signup" class="btn btn-primary btn-block">Sign Up</a>
                     </p>
                 </li>
+                <li class="visible-xs"><a ui-sref="login">Login</a></li>
+                <li class="visible-xs"><a ui-sref="signup">Sign Up</a></li>
             </ul>
         </div>
     </div>
