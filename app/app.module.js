@@ -12,5 +12,5 @@ angular.
         {
             DebugMode: true,
             StepCounter: 0,
-            APIHost: 'http://localhost:12016'
+            APIHost: 'http://localhost:3000'
         });

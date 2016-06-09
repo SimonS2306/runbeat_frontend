@@ -33,7 +33,7 @@ angular.module('RunBeatApp').factory('AuthService',
                 var deferred = $q.defer();
 
                 // send a post request to the server
-                $http.post('/user/login',
+                $http.post('http://localhost:3000/user/login',
                     {username: username, password: password})
                 // handle success
                     .success(function (data, status) {
@@ -62,7 +62,7 @@ angular.module('RunBeatApp').factory('AuthService',
                 var deferred = $q.defer();
 
                 // send a get request to the server
-                $http.get('/user/logout')
+                $http.get('http://localhost:3000/user/logout')
                 // handle success
                     .success(function (data) {
                         user = false;
@@ -85,7 +85,7 @@ angular.module('RunBeatApp').factory('AuthService',
                 var deferred = $q.defer();
 
                 // send a post request to the server
-                $http.post('/user/register',
+                $http.post('http://localhost:3000/user/register',
                     {username: username, password: password})
                 // handle success
                     .success(function (data, status) {
