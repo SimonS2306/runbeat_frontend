@@ -59,6 +59,13 @@ img.size-picture{
     width: 80%;
     height: 80%;
 }
+
+/*Layout of the manage page*/
+div.manage-panel{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
 /*friendsearch X marker*/
 .tag {
     font-size: 14px;

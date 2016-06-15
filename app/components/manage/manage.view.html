@@ -1,5 +1,60 @@
-<div ng-controller="Manage">
-  <label ng-repeat="role in roles">
-      <input type="checkbox" checklist-model="user.roles" checklist-value="role.id"> {{role.text}}
-  </label>
+<div class="container manage-panel">
+    <br>
+
+    <!--<div class="panel panel-default">
+        <div class="panel-body manage-panel">-->
+            <h2 class="text-center">Manage Challenges</h2>
+            <br>
+
+            <button class="btn btn-default btn-block btn-lg" ng-click="showAccept =! showAccept">Challenge requests <span class="caret"></span></button>
+
+            <div class="wrapper" ng-show="showAccept">
+
+                <br>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Challenge</th>
+                            <th>Friend</th>
+                            <th>Date</th>
+                            <th>Accept</th>
+                            <th>Decline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Circle</th>
+                            <th>User A</th>
+                            <th>18.07.16</th>
+                            <th><a>Accept</a></th>
+                            <th><a>Decline</a></th>
+                        </tr>
+                        <tr>
+                            <th>Square</th>
+                            <th>User X</th>
+                            <th>01.01.16</th>
+                            <th><a>Accept</a></th>
+                            <th><a>Decline</a></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br>
+
+            <button class="btn btn-default btn-block btn-lg" ng-click="showSent =! showSent">Issued Challenges <span class="caret"></span></button>
+
+            <div class="wrapper" ng-show="showSent">
+            </div>
+
+            <br>
+
+            <button class="btn btn-default btn-block btn-lg" ng-click="showOngoing =! showOngoing">Ongoing Challenges <span class="caret"></span></button>
+
+            <div class="wrapper" ng-show="showOngoing">
+
+            </div>
+        <!--</div>
+    </div>-->
 </div>
