@@ -66,6 +66,21 @@ div.manage-panel{
     padding-right: 5%;
 }
 
+/*Select challenge page*/
+button.issue{
+    margin-top: 5px;
+}
+
+/*Button colour*/
+.field-colour {
+    background-color: #f8f8f8;
+}
+
+.caret.caret-reversed {
+    border-top-width: 0;
+    border-bottom: 4px solid #000000;
+}
+
 /*friendsearch X marker*/
 .tag {
     font-size: 14px;

@@ -1,60 +1,234 @@
 <div class="container manage-panel">
     <br>
 
-    <!--<div class="panel panel-default">
-        <div class="panel-body manage-panel">-->
-            <h2 class="text-center">Manage Challenges</h2>
-            <br>
+    <h2 class="text-center">Manage Challenges</h2>
+    <br>
 
-            <button class="btn btn-default btn-block btn-lg" ng-click="showAccept =! showAccept">Challenge requests <span class="caret"></span></button>
+    <div ng-class="{dropup: showAccept}">
+        <a class="btn btn-default btn-block btn-lg field-colour" ng-click="showAccept =! showAccept">Challenge Requests
+            <span class="caret"></span>
+        </a>
+    </div>
 
-            <div class="wrapper" ng-show="showAccept">
+    <div class="wrapper" ng-show="showAccept">
 
-                <br>
+        <br>
 
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Challenge</th>
-                            <th>Friend</th>
-                            <th>Date</th>
-                            <th>Accept</th>
-                            <th>Decline</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>Circle</th>
-                            <th>User A</th>
-                            <th>18.07.16</th>
-                            <th><a>Accept</a></th>
-                            <th><a>Decline</a></th>
-                        </tr>
-                        <tr>
-                            <th>Square</th>
-                            <th>User X</th>
-                            <th>01.01.16</th>
-                            <th><a>Accept</a></th>
-                            <th><a>Decline</a></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <a ng-click="sortAcceptType = 'title'; sortAcceptReverse = !sortAcceptReverse">
+                            Challenge
+                            <span ng-show="sortAcceptType == 'title' && sortAcceptReverse" class="caret"></span>
+                            <span ng-show="sortAcceptType == 'title' && !sortAcceptReverse" class="dropup"><span class="caret"></span></span>
+                        </a>
+                    </th>
+                    <th>
+                        <a ng-click="sortAcceptType = 'user'; sortAcceptReverse = !sortAcceptReverse">
+                            Received By
+                            <span ng-show="sortAcceptType == 'user' && sortAcceptReverse" class="caret"></span>
+                            <span ng-show="sortAcceptType == 'user' && !sortAcceptReverse" class="dropup"><span class="caret"></span></span>
+                        </a>
+                    </th>
+                    <th>
+                        <a ng-click="sortAcceptType = 'date'; sortAcceptReverse = !sortAcceptReverse">
+                            Date
+                            <span ng-show="sortAcceptType == 'date' && sortAcceptReverse" class="caret"></span>
+                            <span ng-show="sortAcceptType == 'date' && !sortAcceptReverse" class="dropup"><span class="caret"></span></span>
+                        </a>
+                    </th>
+                    <th>Accept</th>
+                    <th>Decline</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="accept in toAccept | orderBy:sortAcceptType:sortAcceptReverse">
+                    <th>{{accept.title}}</th>
+                    <th>{{accept.user}}</th>
+                    <th>{{accept.date | date}}</th>
+                    <th><a>Accept</a></th>
+                    <th><a>Decline</a></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-            <br>
+    <br>
 
-            <button class="btn btn-default btn-block btn-lg" ng-click="showSent =! showSent">Issued Challenges <span class="caret"></span></button>
+    <div ng-class="{dropup: showSent}">
+        <a class="btn btn-default btn-block btn-lg field-colour" ng-click="showSent =! showSent">Issued Challenges
+            <span class="caret"></span>
+        </a>
+    </div>
 
-            <div class="wrapper" ng-show="showSent">
-            </div>
+    <div class="wrapper" ng-show="showSent">
 
-            <br>
+        <br>
 
-            <button class="btn btn-default btn-block btn-lg" ng-click="showOngoing =! showOngoing">Ongoing Challenges <span class="caret"></span></button>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>
+                    <a ng-click="sortIssuedType = 'title'; sortIssuedReverse = !sortIssuedReverse">
+                        Challenge
+                        <span ng-show="sortIssuedType == 'title' && sortIssuedReverse" class="caret"></span>
+                        <span ng-show="sortIssuedType == 'title' && !sortIssuedReverse" class="dropup"><span class="caret"></span></span>
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="sortIssuedType = 'user'; sortIssuedReverse = !sortIssuedReverse">
+                        Issued To
+                        <span ng-show="sortIssuedType == 'user' && sortIssuedReverse" class="caret"></span>
+                        <span ng-show="sortIssuedType == 'user' && !sortIssuedReverse" class="dropup"><span class="caret"></span></span>
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="sortIssuedType = 'date'; sortIssuedReverse = !sortIssuedReverse">
+                        Date
+                        <span ng-show="sortIssuedType == 'date' && sortIssuedReverse" class="caret"></span>
+                        <span ng-show="sortIssuedType == 'date' && !sortIssuedReverse" class="dropup"><span class="caret"></span></span>
+                    </a>
+                </th>
+                <th>Cancel</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="issued in myIssued | orderBy:sortIssuedType:sortIssuedReverse">
+                <th>{{issued.title}}</th>
+                <th>{{issued.user}}</th>
+                <th>{{issued.date | date}}</th>
+                <th><a>Cancel</a></th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-            <div class="wrapper" ng-show="showOngoing">
+    <br>
 
-            </div>
-        <!--</div>
-    </div>-->
+    <div ng-class="{dropup: showOngoing}">
+        <a class="btn btn-default btn-block btn-lg field-colour" ng-click="showOngoing =! showOngoing">Ongoing Challenges
+            <span class="caret"></span>
+        </a>
+    </div>
+
+    <div class="wrapper" ng-show="showOngoing">
+
+        <br>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>
+                    <a ng-click="sortGoingType = 'title'; sortGoingReverse = !sortGoingReverse">
+                        Challenge
+                        <span ng-show="sortGoingType == 'title' && sortGoingReverse" class="caret"></span>
+                        <span ng-show="sortGoingType == 'title' && !sortGoingReverse" class="dropup"><span class="caret"></span></span>
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="sortGoingType = 'user'; sortGoingReverse = !sortGoingReverse">
+                        Friend
+                        <span ng-show="sortGoingType == 'user' && sortGoingReverse" class="caret"></span>
+                        <span ng-show="sortGoingType == 'user' && !sortGoingReverse" class="dropup"><span class="caret"></span></span>
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="sortGoingType = 'date'; sortGoingReverse = !sortGoingReverse">
+                        Date
+                        <span ng-show="sortGoingType == 'date' && sortGoingReverse" class="caret"></span>
+                        <span ng-show="sortGoingType == 'date' && !sortGoingReverse" class="dropup"><span class="caret"></span></span>
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="sortGoingType = 'myData'; sortGoingReverse = !sortGoingReverse">
+                        Uploaded data
+                        <span ng-show="sortGoingType == 'myData' && sortGoingReverse" class="caret"></span>
+                        <span ng-show="sortGoingType == 'myData' && !sortGoingReverse" class="dropup"><span class="caret"></span></span>
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="sortGoingType = 'friendData'; sortGoingReverse = !sortGoingReverse">
+                        Friend uploaded data
+                        <span ng-show="sortGoingType == 'friendData' && sortGoingReverse" class="caret"></span>
+                        <span ng-show="sortGoingType == 'friendData' && !sortGoingReverse" class="dropup"><span class="caret"></span></span>
+                    </a>
+                </th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="going in onGoing | orderBy:sortGoingType:sortGoingReverse">
+                <th>{{going.title}}</th>
+                <th>{{going.user}}</th>
+                <th>{{going.date | date}}</th>
+                <th>{{going.myData}}</th>
+                <th>{{going.friendData}}</th>
+                <th><a>Decline</a></th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+
+    <div ng-class="{dropup: showCompleted}">
+        <a class="btn btn-default btn-block btn-lg field-colour" ng-click="showCompleted =! showCompleted">Completed Challenges
+            <span class="caret"></span>
+        </a>
+    </div>
+
+    <div class="wrapper" ng-show="showCompleted">
+
+        <br>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>
+                    <a ng-click="sortCompletedType = 'title'; sortCompletedReverse = !sortCompletedReverse">
+                        Challenge
+                        <span ng-show="sortCompletedType == 'title' && sortCompletedReverse" class="caret"></span>
+                        <span ng-show="sortCompletedType == 'title' && !sortCompletedReverse" class="dropup"><span class="caret"></span></span>
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="sortCompletedType = 'user'; sortCompletedReverse = !sortCompletedReverse">
+                        Friend
+                        <span ng-show="sortCompletedType == 'user' && sortCompletedReverse" class="caret"></span>
+                        <span ng-show="sortCompletedType == 'user' && !sortCompletedReverse" class="dropup"><span class="caret"></span></span>
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="sortCompletedType = 'date'; sortCompletedReverse = !sortCompletedReverse">
+                        Date
+                        <span ng-show="sortCompletedType == 'date' && sortCompletedReverse" class="caret"></span>
+                        <span ng-show="sortCompletedType == 'date' && !sortCompletedReverse" class="dropup"><span class="caret"></span></span>
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="sortCompletedType = 'winner'; sortCompletedReverse = !sortCompletedReverse">
+                        Winner
+                        <span ng-show="sortCompletedType == 'winner' && sortCompletedReverse" class="caret"></span>
+                        <span ng-show="sortCompletedType == 'winner' && !sortCompletedReverse" class="dropup"><span class="caret"></span></span>
+                    </a>
+                </th>
+                <th>Facebook</th>
+                <th>Twitter</th>
+                <th>Google</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="complete in completed | orderBy:sortCompletedType:sortCompletedReverse">
+                <th>{{complete.title}}</th>
+                <th>{{complete.user}}</th>
+                <th>{{complete.date | date}}</th>
+                <th>{{complete.winner}}</th>
+                <th>Facebook</th>
+                <th>Twitter</th>
+                <th>Google</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

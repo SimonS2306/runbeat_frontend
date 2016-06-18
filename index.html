@@ -22,8 +22,11 @@
     <!--Individual controllers-->
     <script src="app/shared/auth.ctrl.js"></script>
     <script src="app/shared/auth.services.js"></script>
+
     <script src="app/components/home/home.ctrl.js"></script>
     <script src="app/components/friendsearch/friends.ctrl.js"></script>
+    <script src="app/components/create/challenge/challenge.ctrl.js"></script>
+    <script src="app/components/manage/manage.ctrl.js"></script>
 
     <!--Main style sheet-->
     <link rel="stylesheet" href="assets/css/main.css">
@@ -54,7 +57,7 @@
                     <a class="dropdown-toggle visible-xs-inline-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         Challenges</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Create New</a></li>
+                        <li><a ui-sref="create1">Create New</a></li>
                         <li><a ui-sref="manage">Manage Open</a></li>
                     </ul>
                 </li>
@@ -101,9 +104,9 @@
     <hr>
     <br>
     <div class="footer">
-        <a class="footer" href="#">Rules</a>
-        <a class="footer" href="#">FAQ</a>
-        <a class="footer" href="#">Contact</a>
+        <a class="footer" ui-sref="rules">Rules</a>
+        <a class="footer" ui-sref="faq">FAQ</a>
+        <a class="footer" ui-sref="contact">Contact</a>
     </div>
 
     <br><br>

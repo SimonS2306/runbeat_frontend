@@ -22,13 +22,13 @@ angular.module('RunBeatApp')
             .state('profile', {
                 url: '/profile',
                 templateUrl: 'app/components/profile/profile.view.html',
-                access: {restricted: true}
+                access: {restricted: false} /*TODO: Change*/
             })
             .state('friendsearch',{
                 url: '/friendsearch',
                 templateUrl: 'app/components/friendsearch/friendsearch.view.html',
                 controller: 'friendsController',
-                access: {restricted: true}
+                access: {restricted: false} /*TODO: Change*/
             })
             .state('login',{
                 url: '/login',
@@ -45,10 +45,37 @@ angular.module('RunBeatApp')
             .state('manage',{
                 url: '/manage',
                 templateUrl: 'app/components/manage/manage.view.html',
-                access: {restricted: true}
+                controller: 'manageController',
+                access: {restricted: false} /*TODO: Change*/
             })
             .state('logout',{
                 controller: 'logoutController',
                 access: {restricted: true}
+            })
+            .state('create1',{
+            url: '/create',
+            templateUrl: 'app/components/create/friend/friend.view.html',
+            access: {restricted: false} /*TODO: Change*/
+            })
+            .state('create2',{
+                url: '/create2',/*TODO: Change*/
+                templateUrl: 'app/components/create/challenge/challenge.view.html',
+                controller: 'challengeController',
+                access: {restricted: false} /*TODO: Change*/
+            })
+            .state('rules',{
+                url: '/rules',
+                templateUrl: 'app/shared/rules.view.html',
+                access: {restricted: false}
+            })
+            .state('faq',{
+                url: '/faq',
+                templateUrl: 'app/shared/faq.view.html',
+                access: {restricted: false}
+            })
+            .state('contact',{
+                url: '/contact',
+                templateUrl: 'app/shared/contact.view.html',
+                access: {restricted: false}
             });
     }]);
