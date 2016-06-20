@@ -76,9 +76,10 @@ button.issue{
     background-color: #f8f8f8;
 }
 
-.caret.caret-reversed {
-    border-top-width: 0;
-    border-bottom: 4px solid #000000;
+/*margin for the friend panel items*/
+.friend-panel{
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 /*friendsearch X marker*/

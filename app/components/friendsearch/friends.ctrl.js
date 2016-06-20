@@ -7,19 +7,29 @@
     friendsController.$inject = ["$scope"];
 
     function friendsController($scope) {
-        
+
+        $scope.activeTab = 'friends';
+
         $scope.friends = [
             {
                 image: 'assets/img/profile.jpg',
-                name: 'Shobhit Agrawal'
+                firstName: 'Shobhit',
+                lastName: 'Agrawal'
             },
             {
                 image: 'assets/img/profile.jpg',
-                name: 'Christina'
+                firstName: 'Shobhit',
+                lastName: 'Agrawal'
+            },
+            {
+                image: 'assets/img/profile.jpg',
+                firstName: 'Christina',
+                lastName: 'Kopp'
             },
             {
                 image: 'assets/img/butterfly.jpg',
-                name: 'Simon Spitzer'
+                firstName: 'Simon',
+                lastName: 'Spitzer'
             }
         ];
     }

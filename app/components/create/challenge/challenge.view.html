@@ -3,6 +3,10 @@
     <h2 class="text-center">Select Challenge</h2>
 
     <br>
+
+    <!--<p>You are playing against {{user}}</p>
+    <br>-->
+
     <div class="row">
         <div class="col-sm-6">
             <fieldset class="form-group">
@@ -27,12 +31,13 @@
 
     <div ng-repeat="challenge in challenges | filter : filter | orderBy : 'title'">
         <br>
-
-        <button class="btn btn-default btn-block field-colour" ng-click="challenge.open =! challenge.open">
-            <span class="pull-left"><b>{{challenge.title}}</b> ({{challenge.difficulty}})</span>
+        <div ng-class="{dropup: challenge.open}">
+            <button class="btn btn-default btn-block field-colour" ng-click="challenge.open = !challenge.open">
+                <span class="pull-left"><b>{{challenge.title}}</b> ({{challenge.difficulty}})</span>
             <span class="pull-right"><span class="caret"></span>
             </span>
-        </button>
+            </button>
+        </div>
 
         <div class="wrapper manage-panel" ng-show="challenge.open">
             <br>

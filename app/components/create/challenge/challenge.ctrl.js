@@ -8,6 +8,8 @@
 
     function challengeController($scope) {
 
+        /*$scope.user = sharedCreateChallenge.getName();*/
+
         $scope.challenges = [
             {
                 title: 'Square',
@@ -21,13 +23,17 @@
                 title: 'Circle',
                 difficulty: 'hard',
                 instruction: 'bladfjäöjfä fdsjfäö fjsf fjfjlkfafäf fölsfäjdf fsflfjäfjäfjf f jfäajfäafaä fasfäajf',
-                open: false
+                open: false,
+                image: 'assets/img/Profile.jpg',
+                id: 321
             },
             {
                 title: 'A',
                 difficulty: 'medium',
                 instruction: 'bladfjäöjfä fdsjfäö fjsf fjfjlkfafäf fölsfäjdf fsflfjäfjäfjf f jfäajfäafaä fasfäajf',
-                open: false
+                open: false,
+                image: 'assets/img/Profile.jpg',
+                id: 3215
             }
         ];
     }

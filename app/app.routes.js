@@ -26,7 +26,7 @@ angular.module('RunBeatApp')
             })
             .state('friendsearch',{
                 url: '/friendsearch',
-                templateUrl: 'app/components/friendsearch/friendsearch.view.html',
+                templateUrl: 'app/components/friendsearch/friendsearch2.view.html',
                 controller: 'friendsController',
                 access: {restricted: false} /*TODO: Change*/
             })
@@ -53,9 +53,10 @@ angular.module('RunBeatApp')
                 access: {restricted: true}
             })
             .state('create1',{
-            url: '/create',
-            templateUrl: 'app/components/create/friend/friend.view.html',
-            access: {restricted: false} /*TODO: Change*/
+                url: '/create',
+                templateUrl: 'app/components/create/friend/friend.view.html',
+                /*controller: 'friendController',*/
+                access: {restricted: false} /*TODO: Change*/
             })
             .state('create2',{
                 url: '/create2',/*TODO: Change*/

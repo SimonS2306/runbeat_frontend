@@ -1,0 +1,46 @@
+<br>
+<div class="row">
+
+    <div class="col-sm-6">
+        <fieldset class="form-group">
+            <label for="InputFriendFilter-Friend">Search Friend</label>
+            <input type="text" class="form-control field-colour" id="InputFriendFilter-Friend" placeholder="Search for friend" ng-model="filter.firstName">
+        </fieldset>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5">
+        <label for="InputOrderByFilter-Friend">Order By</label>
+        <select class="form-control field-colour" ng-model="filter" id="InputOrderByFilter-Friend">
+            <option value="">-- Select --</option>
+            <option value="firstName">Name</option>
+            <option value="medium">Medium</option>
+        </select>
+    </div>
+
+</div>
+
+<hr>
+
+<br>
+<div class="row">
+    <div  ng-repeat="friend in friends | filter : filter | orderBy : filter">
+        <div class="clearfix" ng-if="$index % 3 == 0"></div>
+        <div class="col-sm-4">
+            <div class="panel panel-default friend-panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img ng-src="{{friend.image}}" class="menuItem">
+                        </div>
+                        <div class="col-md-9">
+                            <p class="text-center">{{friend.firstName}} {{friend.lastName}}</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
