@@ -10,10 +10,10 @@
     <div class="col-sm-1"></div>
     <div class="col-sm-5">
         <label for="InputOrderByFilter-Friend">Order By</label>
-        <select class="form-control field-colour" ng-model="filter" id="InputOrderByFilter-Friend">
+        <select class="form-control field-colour" ng-model="filter.OrderBy" id="InputOrderByFilter-Friend">
             <option value="">-- Select --</option>
-            <option value="firstName">Name</option>
-            <option value="medium">Medium</option>
+            <option class="active" value="firstName">First name</option>
+            <option value="lastName">Last name</option>
         </select>
     </div>
 
@@ -23,11 +23,11 @@
 
 <br>
 <div class="row">
-    <div  ng-repeat="friend in friends | filter : filter | orderBy : filter">
+    <div  ng-repeat="friend in friends | filter : filter.firstName | orderBy : filter.OrderBy">
         <div class="clearfix" ng-if="$index % 3 == 0"></div>
-        <div class="col-sm-4">
+        <div class="col-md-4">
             <div class="panel panel-default friend-panel">
-                <div class="panel-body">
+                <div class="panel-body ">
                     <div class="row">
                         <div class="col-md-3">
                             <img ng-src="{{friend.image}}" class="menuItem">
