@@ -22,13 +22,13 @@ angular.module('RunBeatApp')
             .state('profile', {
                 url: '/profile',
                 templateUrl: 'app/components/profile/profile2.view.html',
-                access: {restricted: false} /*TODO: Change*/
+                access: {restricted: true}
             })
             .state('friendsearch',{
                 url: '/friendsearch',
                 templateUrl: 'app/components/friendsearch/friendsearch2.view.html',
                 controller: 'friendsController',
-                access: {restricted: false} /*TODO: Change*/
+                access: {restricted: true}
             })
             .state('login',{
                 url: '/login',
@@ -46,7 +46,7 @@ angular.module('RunBeatApp')
                 url: '/manage',
                 templateUrl: 'app/components/manage/manage.view.html',
                 controller: 'manageController',
-                access: {restricted: false} /*TODO: Change*/
+                access: {restricted: true}
             })
             .state('logout',{
                 controller: 'logoutController',
@@ -56,13 +56,13 @@ angular.module('RunBeatApp')
                 url: '/create',
                 templateUrl: 'app/components/create/friend/friend.view.html',
                 /*controller: 'friendController',*/
-                access: {restricted: false} /*TODO: Change*/
+                access: {restricted: true}
             })
             .state('create2',{
                 url: '/create2',/*TODO: Change*/
                 templateUrl: 'app/components/create/challenge/challenge.view.html',
                 controller: 'challengeController',
-                access: {restricted: false} /*TODO: Change*/
+                access: {restricted: true}
             })
             .state('rules',{
                 url: '/rules',
