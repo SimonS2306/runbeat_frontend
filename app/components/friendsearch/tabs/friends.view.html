@@ -26,7 +26,8 @@
     <div  ng-repeat="friend in friends | filter : filter.firstName | orderBy : filter.OrderBy">
         <div class="clearfix" ng-if="$index % 3 == 0"></div>
         <div class="col-md-4">
-            <div class="panel panel-default friend-panel">
+            <div ng-include='"app/components/friendsearch/tabs/friendItem.view.html"' onload="loaded = true"></div></div>
+            <!--<div class="panel panel-default friend-panel" type="button" data-toggle="modal" data-target="#{{friend.username}}">
                 <div class="panel-body ">
                     <div class="row">
                         <div class="col-md-3">
@@ -36,11 +37,23 @@
                             <p class="text-center">{{friend.firstName}} {{friend.lastName}}</p>
                         </div>
                     </div>
-
-
                 </div>
             </div>
+            <div class="modal fade" id="{{friend.username}}" tabindex="-1" role="dialog" aria-labelledby="{{friend.username}}Label" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="{{friend.username}}Label">{{friend.username}}'s Profile</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div ng-include='"app/components/friendsearch/tabs/profileModal.view.html"' onload="loaded = true"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
         </div>
     </div>
-
 </div>

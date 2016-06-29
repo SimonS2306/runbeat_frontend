@@ -1,11 +1,19 @@
 angular.module('RunBeatApp').run(function ($rootScope, $location, AuthService) {
     $rootScope.$on('$stateChangeStart',
         function (event, toState) {
+            
             var requireLogin = toState.access && toState.access.restricted;
 
             if (requireLogin && AuthService.isLoggedIn() === false) {
                 $location.path('login');
             }
+            
+            /*AuthService.getUserStatus()
+             .then(function(){
+             if (toState.access && toState.access.restricted && !AuthService.isLoggedIn()){
+             $location.path('/login');
+             }
+             });*/
         });
 });
 

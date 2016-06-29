@@ -22,6 +22,7 @@ angular.module('RunBeatApp')
             .state('profile', {
                 url: '/profile',
                 templateUrl: 'app/components/profile/profile2.view.html',
+                controller: 'profileController',
                 access: {restricted: true}
             })
             .state('friendsearch',{

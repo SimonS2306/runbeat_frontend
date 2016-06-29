@@ -1,0 +1,62 @@
+<div class="panel panel-default friend-panel" type="button" data-toggle="modal" data-target="#{{friend.username}}">
+    <div class="panel-body ">
+        <div class="row">
+            <div class="col-md-3">
+                <img ng-src="{{friend.image}}" class="menuItem">
+            </div>
+            <div class="col-md-9">
+                <p class="text-center">{{friend.firstName}} {{friend.lastName}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="{{friend.username}}" tabindex="-1" role="dialog" aria-labelledby="{{friend.username}}Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="{{friend.username}}Label">{{friend.username}}'s Profile</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-4 picture-frame">
+                        <img ng-src="{{friend.image}}" class="size-picture">
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-6">
+                        <br class="visible-lg visible-md">
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="InputEmail-Profile">Email address</label>
+                            <input type="email" class="form-control" id="InputEmail-Profile" placeholder="Enter email" ng-model="friend.email" disabled>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="Birthdate-Profile">Birthday</label>
+                            <input type="date" class="form-control" id="Birthdate-Profile" ng-model="friend.birthday" disabled>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <br>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{friend.username}}'s RunBeat Credo</h3>
+                    </div>
+                    <div class="panel-body">
+                        <input type="text" class="form-control" id="Credo-Profile" placeholder="Not everyone is playing to win" ng-model="user.credo" disabled>
+                    </div>
+                </div>
+
+                <br>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

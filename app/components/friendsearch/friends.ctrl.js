@@ -14,22 +14,27 @@
             {
                 image: 'assets/img/profile.jpg',
                 firstName: 'Shobhit',
-                lastName: 'Agrawal'
+                lastName: 'Agrawal',
+                username: 'shobhit',
+                email: 'hello@hello.com'
             },
             {
                 image: 'assets/img/profile.jpg',
                 firstName: 'Shobhit',
-                lastName: 'Agrawal'
+                lastName: 'Agrawal',
+                username: 'agrawal'
             },
             {
                 image: 'assets/img/profile.jpg',
                 firstName: 'Christina',
-                lastName: 'Kopp'
+                lastName: 'Kopp',
+                username: 'christina'
             },
             {
                 image: 'assets/img/butterfly.jpg',
                 firstName: 'Simon',
-                lastName: 'Spitzer'
+                lastName: 'Spitzer',
+                username: 'simon'
             }
         ];
     }

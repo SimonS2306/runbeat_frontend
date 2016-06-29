@@ -27,6 +27,22 @@ angular.module('RunBeatApp').factory('AuthService',
                 return user;
             }
 
+            /*function getUserStatus() {
+                return $http.get('http://localhost:3000/user/status')
+                    // handle success
+                    .success(function (data) {
+                        if(data.status){
+                            user = true;
+                        } else {
+                            user = false;
+                        }
+                    })
+                    // handle error
+                    .error(function (data) {
+                        user = false;
+                    });
+             }*/
+
             function login(username, password) {
 
                 // create a new instance of deferred
