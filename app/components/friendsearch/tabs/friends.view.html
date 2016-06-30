@@ -4,18 +4,18 @@
     <div class="col-sm-6">
         <fieldset class="form-group">
             <label for="InputFriendFilter-Friend">Search Friend</label>
-            <input type="text" class="form-control field-colour" id="InputFriendFilter-Friend" placeholder="Search for friend" ng-model="filter.firstName">
+            <input type="text" class="form-control field-colour" id="InputFriendFilter-Friend" placeholder="Search for friend" ng-model="filter.username">
         </fieldset>
     </div>
     <div class="col-sm-1"></div>
-    <div class="col-sm-5">
+    <!--<div class="col-sm-5">
         <label for="InputOrderByFilter-Friend">Order By</label>
         <select class="form-control field-colour" ng-model="filter.OrderBy" id="InputOrderByFilter-Friend">
             <option value="">-- Select --</option>
             <option class="active" value="firstName">First name</option>
             <option value="lastName">Last name</option>
         </select>
-    </div>
+    </div>-->
 
 </div>
 
@@ -23,37 +23,10 @@
 
 <br>
 <div class="row">
-    <div  ng-repeat="friend in friends | filter : filter.firstName | orderBy : filter.OrderBy">
+    <div  ng-repeat="friend in friends | filter : filter.username"> <!--  | orderBy : filter.OrderBy -->
         <div class="clearfix" ng-if="$index % 3 == 0"></div>
         <div class="col-md-4">
-            <div ng-include='"app/components/friendsearch/tabs/friendItem.view.html"' onload="loaded = true"></div></div>
-            <!--<div class="panel panel-default friend-panel" type="button" data-toggle="modal" data-target="#{{friend.username}}">
-                <div class="panel-body ">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img ng-src="{{friend.image}}" class="menuItem">
-                        </div>
-                        <div class="col-md-9">
-                            <p class="text-center">{{friend.firstName}} {{friend.lastName}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="{{friend.username}}" tabindex="-1" role="dialog" aria-labelledby="{{friend.username}}Label" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title" id="{{friend.username}}Label">{{friend.username}}'s Profile</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div ng-include='"app/components/friendsearch/tabs/profileModal.view.html"' onload="loaded = true"></div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
+            <div ng-include='"app/components/friendsearch/tabs/friendItem.view.html"' onload="loaded = true"></div></div
         </div>
     </div>
 </div>

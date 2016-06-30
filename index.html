@@ -50,13 +50,13 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="hidden-xs"><a href="#"><img src="assets/img/Run_Beat_Logo.png" class="brand"></a></li>
+                <li class="hidden-xs"><a href="#"><img src="assets/img/Run_Beat_Logo.png" class="brand-large" id="brand"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" ng-show="isLoggedIn">
                 <li class="dropdown">
                     <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <figure>
-                            <img src="assets/img/Challenge.png" class="menuItem">
+                            <img src="assets/img/Challenge.png" class="menuItem-large" id="challenge">
                             <figcaption>Challenges<span class="caret"></span></figcaption>
                         </figure></a>
                     <a class="dropdown-toggle visible-xs-inline-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -69,7 +69,7 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <figure>
-                            <img src="assets/img/Profile.jpg" class="menuItem">
+                            <img src="assets/img/Profile.jpg" class="menuItem-large" id="personal">
                             <figcaption>Username<span class="caret"></span></figcaption>
                         </figure></a>
                     <a class="dropdown-toggle visible-xs-inline-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -85,7 +85,8 @@
                 <li class="hidden-xs">
                     <p class="navbar-btn">
                         <a ui-sref="login" class="btn btn-default btn-block">Login</a>
-                        <br class="navbar-login">
+                    </p>
+                    <p class="navbar-btn" id="signup-btn">
                         <a ui-sref="signup" class="btn btn-primary btn-block">Sign Up</a>
                     </p>
                 </li>
@@ -97,7 +98,7 @@
 </nav>
 
 <!-- used to not have hidden content under variable header-->
-<div class="broad-header hidden-xs"></div>
+<div class="broad-header-large hidden-xs" id="broad-header"></div>
 <div class="slim-header visible-xs-inline-block"></div>
 
 <!-- start dynamic content -->
@@ -117,6 +118,23 @@
     <br><br>
 </div>
 
+<script type="text/javascript">
+    $(document).on("scroll",function(){
+        if($(document).scrollTop()>100){
+            $("div#broad-header").removeClass("broad-header-large").addClass("broad-header-small");
+            $("img#challenge").removeClass("menuItem-large").addClass("menuItem-small");
+            $("img#personal").removeClass("menuItem-large").addClass("menuItem-small");
+            $("img#brand").removeClass("brand-large").addClass("brand-small");
+            $("p#signup-btn").removeClass("navbar-btn");
+        } else{
+            $("div#broad-header").removeClass("broad-header-small").addClass("broad-header-large");
+            $("img#challenge").removeClass("menuItem-small").addClass("menuItem-large");
+            $("img#personal").removeClass("menuItem-small").addClass("menuItem-large");
+            $("img#brand").removeClass("brand-small").addClass("brand-large");
+            $("p#signup-btn").addClass("navbar-btn");
+        }
+    });
+</script>
 
 </body>
 </html>

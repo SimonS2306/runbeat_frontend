@@ -1,23 +1,50 @@
 /*Header picture size*/
-img.brand{
+img.brand-large {
     width: 100px;
     height: 100px;
 }
 
-img.menuItem{
+img.menuItem-large {
     width: 80px;
     height: 80px;
     margin-bottom: 5px;
 }
 
+img.brand-small {
+    width: 80px;
+    height: 80px;
+}
+
+img.menuItem-small {
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+header,nav, a, img, li, div, p{
+    transition: all 1s;
+    -moz-transition: all 1s; /* Firefox 4 */
+    -webkit-transition: all 1s; /* Safari and Chrome */
+    -o-transition: all 1s; /* Opera */
+}
+
 /*Alignment for login/signup buttons*/
 p.navbar-btn{
-    margin-top: 16px;
+    margin-top: 20px;
+}
+
+br.navbar-login{
+    line-height: 150%;
 }
 
 /*Exact header size -> no overlay for content*/
-div.broad-header{
-    margin-top: 135px;
+div.broad-header-large{
+    margin-top: 130px;
+}
+
+div.broad-header-small{
+    margin-top: 85px;
 }
 
 div.slim-header{
