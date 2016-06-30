@@ -3,7 +3,7 @@
     <br>
 
     <div class="panel panel-default">
-        <form action="/profile" method="post">
+        <form>
             <div class="panel-body profile-panel">
                 <h1 class="text-center">My Personal Space</h1>
                 <br>
@@ -45,8 +45,9 @@
 
             </div>
             <div class="panel-footer clearfix profile-panel">
-                <div class="pull-right">
-                    <a ui-sref="#" type="submit" class="btn btn-primary">Submit</a>
+                <input class="pull-right">
+                    <button ng-click="updateProfile()">Submit</button>
+                   <!-- <a ui-sref="#" type="submit" class="btn btn-primary">Submit</a>-->
                     <a ui-sref="#" class="btn btn-default">Cancel</a>
                 </div>
             </div>

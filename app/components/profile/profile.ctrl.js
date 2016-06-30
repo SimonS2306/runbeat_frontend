@@ -1,6 +1,6 @@
 angular.module('RunBeatApp').controller('profileController',
-    ['$scope', '$location', 'ProfileService',
-        function ($scope, $location, ProfileService) {
+    ['$scope', '$location','$http', 'ProfileService',
+        function ($scope, $location,$http, ProfileService) {
             
             $scope.user = { username: 'MyUser',
                             profilePicture: 'assets/img/Profile.jpg',
@@ -8,12 +8,17 @@ angular.module('RunBeatApp').controller('profileController',
                             email: 'hello@hello.com',
                             birthday: ''
             };
-                
-            
-            
+
+
+
+            $scope.updateProfile=function() {
+                console.log($scope.user);
+                $http.post('http://localhost:3000/user/updateProfile',$scope.user);
+            };
             /*$scope.user = ProfileService.getProfile();*/
 
-        }]);
+        }
+    ]);
 
 angular.module('RunBeatApp').factory('ProfileService',
     ['$q', '$timeout', '$http',
@@ -61,6 +66,7 @@ angular.module('RunBeatApp').factory('ProfileService',
                 /*TODO*/
                 return deferred.promise;
             }
+
 
         }
     ]);
