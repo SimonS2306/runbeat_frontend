@@ -1,3 +1,23 @@
-/**
- * Created by sspitzer on 01.07.16.
- */
+angular.module('RunBeatApp').run(function ($rootScope, $location, currUser) {
+    $rootScope.$on('$stateChangeStart',
+        function (event, toState) {
+
+            var requireLogin = toState.access && toState.access.restricted;
+
+            if (requireLogin && currUser.isLoggedIn() === false) {
+                $location.path('login');
+            }
+
+        });
+});
+
+angular.module('RunBeatApp').controller('headerController', ['$scope', 'currUser',
+    function ($scope, currUser) {
+
+        $scope.$watch(currUser.isLoggedIn, function(newVal, oldVal) {
+            console.log('Login changed: ',newVal,oldVal);
+            if(newVal !== oldVal){
+                $scope.isLoggedIn = newVal;
+            }
+        });
+    }]);
