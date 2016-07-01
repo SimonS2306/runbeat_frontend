@@ -12,6 +12,9 @@
         this.getUser = getUser;
 
 
+        return ({
+            isLoggedIn: isLoggedIn
+        });
         ////////////////
 
         function register(user, pass) {
@@ -31,6 +34,11 @@
         function getUser() {
             var token = auth.getToken();
             return token? auth.parseJwt(token).user : {};
+        }
+
+        function isLoggedIn() {
+            var token = auth.getToken();
+            return token? true : false;
         }
     }
 
