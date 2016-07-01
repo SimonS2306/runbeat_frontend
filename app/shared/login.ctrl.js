@@ -7,7 +7,7 @@ angular.module('RunBeatApp')
                     $scope.login = login;
 
                     function login() {
-                        currUser.login($scope.username, $scope.password).then(function (response) {
+                        currUser.login($scope.username, $scope.pwd).then(function (response) {
                             if (response.status == 400 || response.status == 401) {
                                 $scope.errorText = "Wrong username or password.";
                             } else {
