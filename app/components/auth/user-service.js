@@ -10,6 +10,7 @@
         this.loggedIn = auth.isAuthed;
         this.logout = auth.deleteToken;
         this.getUser = getUser;
+        this.isLoggedIn = isLoggedIn;
 
 
         return ({

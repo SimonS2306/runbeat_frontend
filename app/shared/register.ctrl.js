@@ -1,24 +1,29 @@
 angular.module('RunBeatApp')
-    .controller('register', function ($scope, currUser) {
+    .controller('register', function ($scope, $location, currUser) {
         $scope.username = '';
-        $scope.pwd = '';
-        $scope.pwdConfirm = '';
+        $scope.password = '';
+        $scope.passwordConfirm = '';
         $scope.error = false;
         $scope.errorText = '';
 
         $scope.register = register;
 
         function register() {
-            currUser.register($scope.username, $scope.pwd).then(function (response) {
-                //debugger;
-                if (response.status == 400 || response.status == 401) {
+            currUser.register($scope.username, $scope.password).then(function (response) {
+                console.log('Register');
+                if(response.status == 201){
+                    $location.path('/');
+                    console.log('Success');
+                } else if (response.status == 400 || response.status == 401) {
+                    $scope.errorText = "Wrong username or password.";
+                    $scope.error = true;
+                    console.log($scope.errorText);
+                } else {
                     $scope.errorText = "An unknown error occured. please try again later.";
                     $scope.error = true;
+                    console.log($scope.errorText);
                 }
             });
         }
 
-        /*function cancel() {
-            $mdDialog.cancel();
-        }*/
     });

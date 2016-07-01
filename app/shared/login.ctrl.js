@@ -1,14 +1,14 @@
 angular.module('RunBeatApp')
                 .controller('login', function ($scope, $location, currUser) {
                     $scope.username = '';
-                    $scope.pwd = '';
+                    $scope.password = '';
                     $scope.error = false;
                     $scope.errorText = '';
 
                     $scope.login = login;
 
                     function login() {
-                        currUser.login($scope.username, $scope.pwd).then(function (response) {
+                        currUser.login($scope.username, $scope.password).then(function (response) {
                             console.log('Hello');
                             if(response.status == 200){
                                 $location.path('/');
