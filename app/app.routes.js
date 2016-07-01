@@ -40,7 +40,7 @@ angular.module('RunBeatApp')
             .state('register', {
                 url: '/register',
                 templateUrl: 'app/shared/register.view.html',
-                /*controller: 'register', TODO*/
+                controller: 'register',
                 access: {restricted: false}
             })
             .state('manage',{

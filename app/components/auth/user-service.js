@@ -13,7 +13,10 @@
 
 
         return ({
-            isLoggedIn: isLoggedIn
+            isLoggedIn: isLoggedIn,
+            register: register,
+            login: login,
+            getUser: getUser
         });
         ////////////////
 
