@@ -2,6 +2,7 @@ angular.module('RunBeatApp')
                 .controller('login', function ($scope, currUser) {
                     $scope.username = '';
                     $scope.pwd = '';
+                    $scope.error = false;
                     $scope.errorText = '';
 
                     $scope.login = login;
@@ -10,8 +11,10 @@ angular.module('RunBeatApp')
                         currUser.login($scope.username, $scope.pwd).then(function (response) {
                             if (response.status == 400 || response.status == 401) {
                                 $scope.errorText = "Wrong username or password.";
+                                $scope.error = true;
                             } else {
                                 $scope.errorText = "An unknown error occured. please try again later.";
+                                $scope.error = true;
                             }
                         });
                     }
