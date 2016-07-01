@@ -1,5 +1,5 @@
 angular.module('RunBeatApp')
-    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+    .config(['$stateProvider', '$urlRouterProvider','$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider){
 
         // any unknown URLS go to 404
         $urlRouterProvider.otherwise('/404');
@@ -34,13 +34,13 @@ angular.module('RunBeatApp')
             .state('login',{
                 url: '/login',
                 templateUrl: 'app/shared/login.view.html',
-                controller: 'loginController',
+                controller: 'login',
                 access: {restricted: false}
             })
-            .state('signup', {
-                url: '/signup',
-                templateUrl: 'app/shared/signup.view.html',
-                controller: 'signupController',
+            .state('register', {
+                url: '/register',
+                templateUrl: 'app/shared/register.view.html',
+                controller: 'register',
                 access: {restricted: false}
             })
             .state('manage',{
@@ -80,4 +80,9 @@ angular.module('RunBeatApp')
                 templateUrl: 'app/shared/contact.view.html',
                 access: {restricted: false}
             });
+
+        //auth interceptor
+        $httpProvider.interceptors.push('authInterceptor');
+
+
     }]);

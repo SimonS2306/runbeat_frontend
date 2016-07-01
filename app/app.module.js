@@ -6,7 +6,7 @@ angular.
 
     module('RunBeatApp', [
         'ui.router'/*,
-        'RubBeatApp.createService'*/
+        'RunBeatApp.createService'*/
     ])
 
     .constant('CONFIG',
