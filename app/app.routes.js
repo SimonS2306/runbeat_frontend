@@ -40,7 +40,7 @@ angular.module('RunBeatApp')
             .state('register', {
                 url: '/register',
                 templateUrl: 'app/shared/register.view.html',
-                /*controller: 'register',*/
+                /*controller: 'register', TODO*/
                 access: {restricted: false}
             })
             .state('manage',{
@@ -50,13 +50,13 @@ angular.module('RunBeatApp')
                 access: {restricted: true}
             })
             .state('logout',{
-                /*controller: 'logoutController',*/
+                /*controller: 'logoutController', TODO*/
                 access: {restricted: true}
             })
             .state('create1',{
                 url: '/create',
                 templateUrl: 'app/components/create/friend/friend.view.html',
-                /*controller: 'friendController',*/
+                /*controller: 'friendController', TODO*/
                 access: {restricted: true}
             })
             .state('create2',{
