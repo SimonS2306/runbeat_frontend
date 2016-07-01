@@ -1,5 +1,5 @@
 angular.module('RunBeatApp')
-                .controller("login", function ($scope, currUser, $mdDialog) {
+                .controller('login', function ($scope, currUser, $mdDialog) {
                     $scope.username = '';
                     $scope.pwd = '';
                     $scope.errorText = '';
