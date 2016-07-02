@@ -59,7 +59,7 @@
         function logout() {
             console.log('User is logged out');
             auth.deleteToken();
-            return $http.post(BASEURL + '/user/logout', {});
+            return $http.get(BASEURL + '/user/logout', {});
         }
     }
 
