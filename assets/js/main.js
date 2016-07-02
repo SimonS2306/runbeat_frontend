@@ -12,14 +12,11 @@ angular.module('RunBeatApp').run(function ($rootScope, $location, currUser) {
 
 angular.module('RunBeatApp').controller('headerController', ['$scope', 'currUser',
     function ($scope, currUser) {
-        this.isLoggedIn = currUser.isLoggedIn;
+        this.isLoggedIn = currUser.isLoggedIn();
         console.log('inside 1 header controller'+currUser.isLoggedIn());
         $scope.$watch(currUser.isLoggedIn, function(newVal, oldVal) {
             console.log('Login changed: ',newVal,oldVal);
-            if(newVal !== oldVal){
-                $scope.isLoggedIn = newVal;
-            }
+            $scope.isLoggedIn = newVal;
         });
-        
     }
 ]);
