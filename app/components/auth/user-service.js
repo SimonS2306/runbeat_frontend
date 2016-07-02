@@ -9,16 +9,16 @@
         this.login = login;
         this.loggedIn = auth.isAuthed;
         this.logout = logout;
-        this.getUser = getUser;
+        this.getUserID = getUserID;
         this.isLoggedIn = isLoggedIn;
-
 
         return ({
             isLoggedIn: isLoggedIn,
             register: register,
             login: login,
-            getUser: getUser,
-            logout: logout
+            getUserID: getUserID,
+            logout: logout,
+            username: getUsername
         });
         ////////////////
 
@@ -36,24 +36,19 @@
             });
         }
 
-        function getUser() {
+        function getUserID() {
             var token = auth.getToken();
-            return token? auth.parseJwt(token).user : {};
+            return token? auth.parseJwt(token).user._id : '';
+        }
+
+        function getUsername(){
+            var token = auth.getToken();
+            return token != null ? auth.parseJwt(token).user.username : '';
         }
 
         function isLoggedIn() {
-            console.log('inside User Service called by index');
             var token = auth.getToken();
-           if (token!= null){
-               console.log('inside true');
-
-               return true;
-           }
-            else {
-               console.log('inside false');
-               return false;
-           }
-           // return token? true : false;
+            return token != null ? true : false;
         }
 
         function logout() {

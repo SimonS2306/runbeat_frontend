@@ -76,10 +76,10 @@
                     <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <figure>
                             <img src="assets/img/Profile.jpg" class="menuItem-large" id="personal">
-                            <figcaption>Username<span class="caret"></span></figcaption>
+                            <figcaption>{{currentUser}}<span class="caret"></span></figcaption>
                         </figure></a>
                     <a class="dropdown-toggle visible-xs-inline-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        Username</a>
+                        {{currentUser}}</a>
                     <ul class="dropdown-menu">
                         <li><a ui-sref="profile">Profile</a></li>
                         <li><a ui-sref="friendsearch">Friend list</a></li>
