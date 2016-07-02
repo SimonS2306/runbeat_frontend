@@ -224,7 +224,7 @@
                 <th>{{complete.user}}</th>
                 <th>{{complete.date | date}}</th>
                 <th>{{complete.winner}}</th>
-                <th>Facebook</th>
+                <th><div class="fb-share-button" data-href="http://localhost:8080/#/" data-layout="button" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2F%23%2F&amp;src=sdkpreparse">Share</a></div></th>
                 <th>
                     <div ng-if="complete.user === complete.winner">
                         <a class="twitter-share-button"
@@ -237,11 +237,20 @@
                             Tweet</a>
                     </div>
                 </th>
-                <th>Google</th>
+                <th><div class="g-plusone" data-annotation="none"></div></th>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer>{lang: 'en-GB'}</script>
