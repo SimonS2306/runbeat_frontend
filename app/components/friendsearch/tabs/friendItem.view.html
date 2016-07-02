@@ -2,10 +2,23 @@
     <div class="panel-body ">
         <div class="row">
             <div class="col-md-3">
-                <img ng-src="{{friend.image}}" class="menuItem">
+                <img ng-src="{{friend.image}}" class="menuItem-large">
             </div>
-            <div class="col-md-9">
-                <p class="text-center">{{friend.firstName}} {{friend.lastName}}</p>
+            <div class="col-md-9 text-center">
+                <p><b>{{friend.username}}</b></p>
+                <div ng-switch="activeTab">
+                    <div ng-switch-when='friends'>
+                    </div>
+                    <div ng-switch-when='received'>
+                        <a class="btn btn-primary" ng-click="accept(friend.userid)">Accept</a>
+                        <a class="btn btn-default" ng-click="decline(friend.userid)">Decline</a>
+                    </div>
+                    <div ng-switch-when='sent'>
+                        <a class="btn btn-default" ng-click="cancel(friend.userid)">Decline</a>
+                    </div>
+                    <div ng-switch-when='search'>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

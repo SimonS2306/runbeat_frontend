@@ -1,7 +1,5 @@
 <div class="container manage-panel">
 
-    <br>
-
     <div class="panel panel-default">
         <form>
             <div class="panel-body profile-panel">
@@ -34,7 +32,7 @@
                 </div>
                 <br>
 
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">My RunBeat Credo</h3>
                     </div>
@@ -46,10 +44,8 @@
             </div>
             <div class="panel-footer clearfix profile-panel">
                 <input class="pull-right">
-                    <button ng-click="updateProfile()">Submit</button>
-                   <!-- <a ui-sref="#" type="submit" class="btn btn-primary">Submit</a>-->
+                    <button ui-sref="#" type="submit" class="btn btn-primary" ng-click="updateProfile()">Submit</button>
                     <a ui-sref="#" class="btn btn-default">Cancel</a>
-                </div>
             </div>
         </form>
     </div>

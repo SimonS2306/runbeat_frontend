@@ -8,7 +8,7 @@
         this.register = register;
         this.login = login;
         this.loggedIn = auth.isAuthed;
-        this.logout = auth.deleteToken;
+        this.logout = logout;
         this.getUser = getUser;
         this.isLoggedIn = isLoggedIn;
 
@@ -17,7 +17,8 @@
             isLoggedIn: isLoggedIn,
             register: register,
             login: login,
-            getUser: getUser
+            getUser: getUser,
+            logout: logout
         });
         ////////////////
 
@@ -53,6 +54,12 @@
                return false;
            }
            // return token? true : false;
+        }
+
+        function logout() {
+            console.log('User is logged out');
+            auth.deleteToken();
+            return $http.post(BASEURL + '/user/logout', {});
         }
     }
 

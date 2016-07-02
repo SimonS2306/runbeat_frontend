@@ -12,7 +12,6 @@ angular.module('RunBeatApp').run(function ($rootScope, $location, currUser) {
 
 angular.module('RunBeatApp').controller('headerController', ['$scope', 'currUser',
     function ($scope, currUser) {
-        $scope.abc= currUser.isLoggedIn();
         this.isLoggedIn = currUser.isLoggedIn;
         console.log('inside 1 header controller'+currUser.isLoggedIn());
         $scope.$watch(currUser.isLoggedIn, function(newVal, oldVal) {
