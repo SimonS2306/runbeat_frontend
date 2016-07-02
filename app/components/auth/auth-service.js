@@ -25,6 +25,7 @@
 
         function deleteToken() {
             $window.localStorage.removeItem('jwtToken');
+            console.log("Token removed, weehhaa")
         }
 
         function parseJwt(token) {
