@@ -225,10 +225,23 @@
                 <th>{{complete.date | date}}</th>
                 <th>{{complete.winner}}</th>
                 <th>Facebook</th>
-                <th>Twitter</th>
+                <th>
+                    <div ng-if="complete.user === complete.winner">
+                        <a class="twitter-share-button"
+                           href="https://twitter.com/intent/tweet?text=Lost%20in%20the%20{{complete.title}}%20challenge%20against%20{{complete.user}}.Congrats,%20it%20a%20great%20challenge.">
+                            Tweet</a>
+                    </div>
+                    <div ng-if="complete.user != complete.winner">
+                        <a class="twitter-share-button"
+                           href="https://twitter.com/intent/tweet?text=Won%20in%20the%20{{complete.title}}%20challenge%20against%20{{complete.user}}.Thanks%20for%20the%20great%20challenge.">
+                            Tweet</a>
+                    </div>
+                </th>
                 <th>Google</th>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+<script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>

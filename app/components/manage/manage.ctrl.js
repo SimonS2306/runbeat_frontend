@@ -13,17 +13,17 @@
         $scope.toAccept = [
             {
                 title: 'Square',
-                user: 'User A',
+                user: 'UserA',
                 date: new Date('06/18/2015')
             },
             {
                 title: 'Circle',
-                user: 'User B',
+                user: 'UserB',
                 date: new Date('08/06/2016')
             },
             {
                 title: 'Triangle',
-                user: 'User X',
+                user: 'UserX',
                 date: new Date('01/18/2015')
             }
         ];
@@ -34,17 +34,17 @@
         $scope.myIssued = [
             {
                 title: 'Square',
-                user: 'User A',
+                user: 'UserA',
                 date: new Date('06/18/2015')
             },
             {
                 title: 'Circle',
-                user: 'User C',
+                user: 'UserC',
                 date: new Date('08/06/2016')
             },
             {
                 title: 'Triangle',
-                user: 'User X',
+                user: 'UserX',
                 date: new Date('01/18/2015')
             }
         ];
@@ -55,21 +55,21 @@
         $scope.onGoing = [
             {
                 title: 'Square',
-                user: 'User A',
+                user: 'UserA',
                 date: new Date('06/18/2015'),
                 myData: false,
                 friendData: true
             },
             {
                 title: 'Circle',
-                user: 'User B',
+                user: 'UserB',
                 date: new Date('08/06/2016'),
                 myData: true,
                 friendData: false
             },
             {
                 title: 'Triangle',
-                user: 'User X',
+                user: 'UserX',
                 date: new Date('01/18/2015'),
                 myData: false,
                 friendData: false
@@ -82,19 +82,19 @@
         $scope.completed = [
             {
                 title: 'Square',
-                user: 'User A',
+                user: 'UserA',
                 date: new Date('06/18/2015'),
-                winner: 'User A'
+                winner: 'UserA'
             },
             {
                 title: 'Circle',
-                user: 'User B',
+                user: 'UserB',
                 date: new Date('08/06/2016'),
                 winner: 'Me'
             },
             {
                 title: 'Triangle',
-                user: 'User X',
+                user: 'UserX',
                 date: new Date('01/18/2015'),
                 winner: 'Me'
             }
