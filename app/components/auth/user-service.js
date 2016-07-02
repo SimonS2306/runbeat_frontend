@@ -41,8 +41,18 @@
         }
 
         function isLoggedIn() {
+            console.log('inside User Service called by index');
             var token = auth.getToken();
-            return token? true : false;
+           if (token!= null){
+               console.log('inside true');
+
+               return true;
+           }
+            else {
+               console.log('inside false');
+               return false;
+           }
+           // return token? true : false;
         }
     }
 

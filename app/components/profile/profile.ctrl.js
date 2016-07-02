@@ -2,18 +2,16 @@ angular.module('RunBeatApp').controller('profileController',
     ['$scope', '$location','$http', 'ProfileService',
         function ($scope, $location,$http, ProfileService) {
             
-            $scope.user = { username: 'MyUser',
+            $scope.user = { username: '123456',
                             profilePicture: 'assets/img/Profile.jpg',
                             credo: 'Carpe Diem',
                             email: 'hello@hello.com',
                             birthday: ''
             };
-
-
-
             $scope.updateProfile=function() {
                 console.log($scope.user);
-                $http.post('http://localhost:3000/user/updateProfile',$scope.user);
+                var myRes=$http.post('http://localhost:3000/user/update',$scope.user);
+                console.log(myRes);
             };
             /*$scope.user = ProfileService.getProfile();*/
 

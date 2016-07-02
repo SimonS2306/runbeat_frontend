@@ -42,6 +42,7 @@
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" ng-controller="headerController">
+
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -56,7 +57,7 @@
             <ul class="nav navbar-nav">
                 <li class="hidden-xs"><a href="#"><img src="assets/img/Run_Beat_Logo.png" class="brand"></a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right" ng-show="isLoggedIn">
+            <ul ng-show="abc" class="nav navbar-nav navbar-right" >
                 <li class="dropdown">
                     <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <figure>
@@ -85,7 +86,7 @@
                     </ul>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right" ng-show="!isLoggedIn">
+            <ul class="nav navbar-nav navbar-right" ng-show="!abc">
                 <li class="hidden-xs">
                     <p class="navbar-btn">
                         <a ui-sref="login" class="btn btn-default btn-block">Login</a>
@@ -93,6 +94,7 @@
                         <a ui-sref="register" class="btn btn-primary btn-block">Sign Up</a>
                     </p>
                 </li>
+                <h1> abcd <script></script></h1>
                 <li class="visible-xs"><a ui-sref="login">Login</a></li>
                 <li class="visible-xs"><a ui-sref="signup">Sign Up</a></li>
             </ul>
