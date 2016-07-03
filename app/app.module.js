@@ -5,13 +5,13 @@
 angular.
 
     module('RunBeatApp', [
-        'ui.router',
-        'ui.bootstrap'
+        'ui.router'/*,
+        'RunBeatApp.createService'*/
     ])
 
     .constant('CONFIG',
         {
             DebugMode: true,
             StepCounter: 0,
-            APIHost: 'http://localhost:12017'
+            APIHost: 'http://localhost:3000'
         });

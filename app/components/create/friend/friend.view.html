@@ -1,0 +1,12 @@
+<div class="container">
+    <br>
+    <h2>Friend</h2>
+
+    <form novalidate>
+        <input ng-model="user">
+        <!-- The method for submitting the data goes on the button. -->
+        <!-- The name is passed to the method you want to use to store the data, which you make happen when the button is clicked by using the ngClick directive. -->
+        <input type="submit" ng-click="update(user)" value="Save" ui-sref="create2"/>
+    </form>
+
+</div>

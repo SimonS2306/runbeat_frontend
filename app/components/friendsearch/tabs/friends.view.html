@@ -1,0 +1,32 @@
+<br>
+<div class="row">
+
+    <div class="col-sm-6">
+        <fieldset class="form-group">
+            <label for="InputFriendFilter-Friend">Search Friend</label>
+            <input type="text" class="form-control field-colour" id="InputFriendFilter-Friend" placeholder="Search for friend" ng-model="filter.username">
+        </fieldset>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5">
+        <!--<label for="InputOrderByFilter-Friend">Order By</label>
+        <select class="form-control field-colour" ng-model="filter.OrderBy" id="InputOrderByFilter-Friend">
+            <option value="">-- Select --</option>
+            <option class="active" value="firstName">First name</option>
+            <option value="lastName">Last name</option>
+        </select>-->
+    </div>
+
+</div>
+
+<hr>
+
+<br>
+<div class="row">
+    <div  ng-repeat="friend in friends | filter : filter.username | orderBy : filter.OrderBy">
+        <div class="clearfix" ng-if="$index % 3 == 0"></div>
+        <div class="col-md-4">
+            <div ng-include='"app/components/friendsearch/tabs/friendItem.view.html"' onload="loaded = true"></div></div>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,80 @@
-<h1>Profile</h1>
+<div class="container manage-panel">
+
+    <br>
+
+    <div class="panel panel-default">
+        <form action="/profile" ng-submit="updateProfile()" method="post">
+            <div class="panel-body profile-panel">
+                <h1 class="text-center">My Personal Space</h1>
+                <br>
+
+                <h3>My Account Information</h3>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <fieldset class="form-group">
+                            <label for="InputEmail-Profile">Email address</label>
+                            <input type="email" class="form-control" id="InputEmail-Profile" placeholder="Enter email" ng-model="user.userName">
+                            <small class="text-muted">We'll never share your email with anyone else.</small>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <fieldset class="form-group">
+                            <label for="InputPassword-Profile">Password</label>
+                            <input type="password" class="form-control" id="InputPassword-Profile" placeholder="New Password" ng-model="user.password">
+                            <small class="text-muted">Only change these fields, if you want to change your password.</small>
+                        </fieldset>
+                    </div>
+                    <div class="col-sm-6">
+                        <fieldset class="form-group">
+                            <label for="InputPassword-Profile">Confirm Password</label>
+                            <input type="password" class="form-control" id="InputPasswordConfirm-Profile" placeholder="Repeat new password">
+                        </fieldset>
+                    </div>
+                </div>
+
+                <h3>My Profile Information</h3>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <fieldset class="form-group">
+                            <label for="FirstName">First Name</label>
+                            <input type="text" class="form-control" id="FirstName" ng-model="user.fName">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="exampleInputPassword1">Last Name</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="Birthdate">Birthday</label>
+                            <input type="date" class="form-control" id="Birthdate" ng-model="user.birthDate">
+                        </fieldset>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-4 picture-frame">
+                        <img src="assets/img/Profile.jpg" class="size-picture">
+                        <input type="file" class="form-control-file" id="InputFile">
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+                <br>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">My RunBeat Credo</h3>
+                    </div>
+                    <div class="panel-body">
+                        <input type="text" class="form-control" id="Credo" placeholder="Not everyone is playing to win" ng-model="user.credo">
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer clearfix profile-panel">
+                <div class="pull-right">
+                    <a ui-sref="#" type="submit" class="btn btn-primary">Submit</a>
+                    <a ui-sref="#" class="btn btn-default">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

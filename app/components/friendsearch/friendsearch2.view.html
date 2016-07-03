@@ -1,0 +1,36 @@
+<br />
+<div class="container manage-panel">
+    <h2 class="text-center">Friendly Space</h2>
+    <br>
+
+    <div class="tabbable">
+        <ul class="nav nav-tabs">
+            <li ng-class="{active: activeTab == 'friends'}">
+                <a ng-click='activeTab = "friends"'>My Friends</a>
+            </li>
+            <li ng-class="{active: activeTab == 'received'}">
+                <a ng-click='activeTab = "received"'>Friend requests</a>
+            </li>
+            <li ng-class="{active: activeTab == 'sent'}">
+                <a ng-click='activeTab = "sent"'>Sent requests</a>
+            </li>
+            <li ng-class="{active: activeTab == 'search'}">
+                <a ng-click='activeTab = "search"'>Search</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div ng-switch="activeTab">
+            <div ng-switch-when='friends'>
+                 <div ng-include='"app/components/friendsearch/tabs/friends.view.html"' onload="loaded = true"></div></div>
+            <div ng-switch-when='received'>
+                <div ng-include='"app/components/friendsearch/tabs/received.view.html"' onload="loaded = true"></div></div>
+            <div ng-switch-when='sent'>
+                <div ng-include='"app/components/friendsearch/tabs/sent.view.html"' onload="loaded = true"></div></div>
+            <div ng-switch-when='search'>
+                <div ng-include='"app/components/friendsearch/tabs/search.view.html"' onload="loaded = true"></div></div>
+        </div>
+    </div>
+
+    </div>
+</div>

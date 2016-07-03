@@ -1,109 +1,146 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="RunBeatApp">
 <head>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="">
 
     <title>RunBeat</title>
 
+    <!--Library includes-->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="node_modules/angular/angular.min.js"></script>
-    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
-
     <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <!--Main app includes-->
     <script src="app/app.module.js"></script>
     <script src="app/app.routes.js"></script>
+    <!--Authentication enforcement-->
+    <script src="assets/js/main.js"></script>
+    <!--Individual controllers-->
+    <!--Authentication controller/service-->
+    <script src="app/shared/login.ctrl.js"></script>
+    <script src="app/shared/register.ctrl.js"></script>
+    <script src="app/shared/logout.ctrl.js"></script>
+    <script src="app/components/auth/auth-service.js"></script>
+    <script src="app/components/auth/auth-interceptor.js"></script>
+    <script src="app/components/auth/user-service.js"></script>
+    <script src="app/components/config/config.js"></script>
 
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="app/components/home/home.ctrl.js"></script>
+    <script src="app/components/friendsearch/friends.ctrl.js"></script>
+    <!--<script src="app/components/create/create.service.js"></script>-->
+    <script src="app/components/create/challenge/challenge.ctrl.js"></script>
+    <script src="app/components/create/friend/friend.ctrl.js"></script>
+    <script src="app/components/manage/manage.ctrl.js"></script>
+    <script src="app/components/profile/profile.ctrl.js"></script>
+
+    <!--Main style sheet-->
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="headerController">
 
-<nav class="navbar navbar-default navbar-fixed-top hidden-xs">
-    <div class="container">
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="hidden-xs"><a href="#"><img src="assets/img/Logo.png" class="brand"></a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li uib-dropdown>
-                    <a role="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
-                        <figure>
-                            <img src="assets/img/Challenge.png" class="menuItem">
-                            <figcaption>Challenges<span class="caret"></span></figcaption>
-                        </figure></a>
-                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                        <li><a href="#">Create New</a></li>
-                        <li><a href="#">Manage Open</a></li>
-                    </ul>
-                </li>
-                <li  uib-dropdown>
-                    <a role="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
-                        <figure>
-                            <img src="assets/img/Profile.jpg" class="menuItem">
-                            <figcaption>Username<span class="caret"></span></figcaption>
-                        </figure></a>
-                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                        <li><a ui-sref="profile">Profile</a></li>
-                        <li><a href="#">Friend list</a></li>
-                        <li><a href="#">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<nav class="navbar navbar-default navbar-fixed-top visible-xs">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" ng-click="showMobileNav = !showMobileNav">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">RunBeat</a>
+            <a class="navbar-brand visible-xs-inline-block" href="#">RunBeat</a>
         </div>
-        <div class="collapse navbar-collapse" ng-class="{in: showMobileNav}">
+        <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li uib-dropdown>
-                    <a role="button" class="visible-xs" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
+                <li class="hidden-xs"><a href="#"><img src="assets/img/Run_Beat_Logo.png" class="brand-large" id="brand"></a></li>
+            </ul>
+            <ul ng-show="isLoggedIn" class="nav navbar-nav navbar-right" >
+                <li class="dropdown">
+                    <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <figure>
+                            <img src="assets/img/Challenge.png" class="menuItem-large" id="challenge">
+                            <figcaption>Challenges<span class="caret"></span></figcaption>
+                        </figure></a>
+                    <a class="dropdown-toggle visible-xs-inline-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         Challenges</a>
-                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                        <li><a href="#">Create New</a></li>
-                        <li><a href="#">Manage Open</a></li>
+                    <ul class="dropdown-menu">
+                        <li><a ui-sref="create1">Create New</a></li>
+                        <li><a ui-sref="manage">Manage Open</a></li>
                     </ul>
                 </li>
-                <li uib-dropdown>
-                    <a role="button" class="visible-xs" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
-                        Username</a>
-                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li class="dropdown">
+                    <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <figure>
+                            <img src="assets/img/Profile.jpg" class="menuItem-large" id="personal">
+                            <figcaption>{{currentUser}}<span class="caret"></span></figcaption>
+                        </figure></a>
+                    <a class="dropdown-toggle visible-xs-inline-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        {{currentUser}}</a>
+                    <ul class="dropdown-menu">
                         <li><a ui-sref="profile">Profile</a></li>
-                        <li><a href="#">Friend list</a></li>
-                        <li><a href="#">Logout</a></li>
+                        <li><a ui-sref="friendsearch">Friend list</a></li>
+                        <li ng-controller="logoutController"><a ng-click='logout()'>Logout</a></li>
                     </ul>
                 </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-hide="isLoggedIn">
+                <li class="hidden-xs">
+                    <p class="navbar-btn">
+                        <a ui-sref="login" class="btn btn-default btn-block">Login</a>
+                    </p>
+                    <p class="navbar-btn" id="signup-btn">
+                        <a ui-sref="register" class="btn btn-primary btn-block">Sign Up</a>
+                    </p>
+                </li>
+                <li class="visible-xs"><a ui-sref="login">Login</a></li>
+                <li class="visible-xs"><a ui-sref="signup">Sign Up</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <!-- used to not have hidden content under variable header-->
-<div class="broad-header hidden-xs"></div>
+<div class="broad-header-large hidden-xs"></div>
 <div class="slim-header visible-xs-inline-block"></div>
 
+<!-- start dynamic content -->
+<div ui-view=""></div>
+<!-- end dynamic content -->
+
+
 <div class="container">
-
-    <!-- start dynamic content -->
-    <div ui-view=""></div>
-    <!-- end dynamic content -->
-
     <hr>
+    <br>
     <div class="footer">
-        <a class="footer" href="#">Rules</a>
-        <a class="footer" href="#">FAQ</a>
-        <a class="footer" href="#">Contact</a>
+        <a class="footer" ui-sref="rules">Rules</a>
+        <a class="footer" ui-sref="faq">FAQ</a>
+        <a class="footer" ui-sref="contact">Contact</a>
     </div>
+
+    <br><br>
 </div>
+
+<script type="text/javascript">
+    $(document).on("scroll",function(){
+        if($(document).scrollTop()>100){
+            $("div#broad-header").removeClass("broad-header-large").addClass("broad-header-small");
+            $("img#challenge").removeClass("menuItem-large").addClass("menuItem-small");
+            $("img#personal").removeClass("menuItem-large").addClass("menuItem-small");
+            $("img#brand").removeClass("brand-large").addClass("brand-small");
+            $("p#signup-btn").removeClass("navbar-btn");
+        } else{
+            $("div#broad-header").removeClass("broad-header-small").addClass("broad-header-large");
+            $("img#challenge").removeClass("menuItem-small").addClass("menuItem-large");
+            $("img#personal").removeClass("menuItem-small").addClass("menuItem-large");
+            $("img#brand").removeClass("brand-small").addClass("brand-large");
+            $("p#signup-btn").addClass("navbar-btn");
+        }
+    });
+</script>
 
 </body>
 </html>

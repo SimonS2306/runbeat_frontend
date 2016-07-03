@@ -1,26 +1,116 @@
-div.footer{
-    text-align: center;
-}
-
-img.brand{
+/*Header picture size*/
+img.brand-large {
     width: 100px;
     height: 100px;
 }
 
-img.menuItem{
+img.menuItem-large {
     width: 80px;
     height: 80px;
     margin-bottom: 5px;
 }
 
-div.broad-header{
-    margin-top: 150px;
+img.brand-small {
+    width: 80px;
+    height: 80px;
+}
+
+img.menuItem-small {
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+header,nav, a, img, li, div, p{
+    transition: all 0.5s;
+    -moz-transition: all 0.5s; /* Firefox 4 */
+    -webkit-transition: all 0.5s; /* Safari and Chrome */
+    -o-transition: all 0.5s; /* Opera */
+}
+
+/*Alignment for login/signup buttons*/
+p.navbar-btn{
+    margin-top: 20px;
+}
+
+br.navbar-login{
+     line-height: 150%;
+}
+
+/*Exact header size -> no overlay for content*/
+div.broad-header-large {
+    margin-top: 130px;
+}
+
+div.broad-header-small{
+    margin-top: 85px;
 }
 
 div.slim-header{
     margin-top: 50px;
 }
 
+/*Footer layouting*/
+div.footer{
+    text-align: center;
+}
+
 a.footer{
-    margin: 15px;
+    margin: 20px;
+}
+
+/*Text/ Forms float center*/
+div.text-center {
+    text-align: center;
+}
+
+/*Layout of the profile + profile picture*/
+div.profile-panel{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+input[type=file] {
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+/*Sizing pictures (profile + home)*/
+div.picture-frame {
+    padding: 1%;
+    text-align: center;
+}
+
+img.size-picture{
+    width: 80%;
+    height: 80%;
+}
+
+/*Layout of the manage page*/
+div.manage-panel{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+/*Select challenge page*/
+button.issue{
+    margin-top: 5px;
+}
+
+/*Button colour*/
+.field-colour {
+    background-color: #f8f8f8;
+}
+
+/*margin for the friend panel items*/
+.friend-panel{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.friend-panel:hover{
+    background-color: #f8f8f8;
+    padding-left: 5px;
+    padding-right: 5px;
 }

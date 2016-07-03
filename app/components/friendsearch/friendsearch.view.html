@@ -1,0 +1,82 @@
+<div class="container" >
+    <div id="content">
+        <br><br>
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="#friends" data-toggle="pills">Friends</a></li>
+        <li role="presentation"><a href="#requests" data-toggle="pills">Friend Requests</a></li>
+        <li role="presentation"><a href="#search" data-toggle="pills">Search</a></li>
+    </ul>
+<div class="tab-content" ng-controller="friendsController">
+    <div class="tab-pane active panel panel-default" id="friends">
+   <h2 class="text-center">Friends</h2>
+        <div class="profile-panel">
+            <div class="row">
+                <div ng-repeat="friend in friends">
+                    <div class="col-sm-4 picture-frame panel panel-default">
+
+                        <img ng-src="{{friend.image}}" class="size-picture">
+
+                        <div><h3>{{friend.name}}</h3></div><span class="tag">
+                            <a><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="tab-pane" id="requests">
+        <h4 class="text-center">Friend Requests</h4>
+        <div class="panel panel-default">
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <div class="col-sm-4 picture-frame">
+                        <fieldset class="row">
+                            <a ui-sref="#" type="submit" class="btn btn-primary">Accept</a>
+                            <a ui-sref="#" class="btn btn-default">Decline</a>
+                        </fieldset>
+                        <img src="assets/img/Profile.jpg" class="size-picture">
+                        <div class="panel-footer"><a href="#">Shobhit Agrawal</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <div class="col-sm-4 picture-frame">
+                        <fieldset class="row">
+                            <a ui-sref="#" type="submit" class="btn btn-primary">Accept</a>
+                            <a ui-sref="#" class="btn btn-default">Decline</a>
+                        </fieldset>
+                        <img src="assets/img/Profile.jpg" class="size-picture">
+                        <div class="panel-footer"><a href="#">Shobhit Agrawal</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tab-pane" id="search">
+        <h4 class="text-center">Search Friends</h4>
+        <div class="container2">
+            <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Go!</button>
+      </span>
+                <input type="text" class="form-control" placeholder="Search for Friend...">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $('#tabs').tab();
+        });
+    </script>
+
+</div>
