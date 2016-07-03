@@ -4,11 +4,11 @@
     angular.module('RunBeatApp')
         .controller('challengeController', challengeController);
 
-    challengeController.$inject = ["$scope"];
+    challengeController.$inject = ["$scope", "createShare"];
 
-    function challengeController($scope) {
+    function challengeController($scope, createShare) {
 
-        /*$scope.user = sharedCreateChallenge.getName();*/
+        $scope.user = createShare.getID();
 
         $scope.challenges = [
             {

@@ -1,24 +1,24 @@
-(function () {
-    'use strict';
+(function(){
 
-    angular.module('RubBeatApp.createService', [])
-        .service('sharedCreateChallenge', function () {
-            var name = 'Name';
-            var challenge = 'Challenge';
+    angular.module('RunBeatApp')
+        .service('createShare', createShareService);
 
-            return {
-                getName: function () {
-                    return name;
-                },
-                setName: function(value) {
-                    name = value;
-                },
-                getChallenge: function () {
-                    return challenge;
-                },
-                setChallenge: function(value) {
-                    challenge = value;
-                }
-            };
+    function createShareService() {
+
+        this.userID = '';
+
+        return ({
+            setUserID: setUserID,
+            getUserID: getUserID
         });
-})
+
+        function setUserID(userID) {
+            this.userID = userID;
+            console.log('Saved in ID', this.userID);
+            return;
+        }
+        function getUserID() {
+            return this.userID;
+        }
+    }
+})();
