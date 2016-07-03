@@ -56,7 +56,7 @@ angular.module('RunBeatApp')
             .state('create1',{
                 url: '/create',
                 templateUrl: 'app/components/create/friend/friend.view.html',
-                /*controller: 'friendController', TODO*/
+                controller: 'friendController',
                 access: {restricted: true}
             })
             .state('create2',{
