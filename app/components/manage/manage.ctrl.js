@@ -4,29 +4,14 @@
     angular.module('RunBeatApp')
         .controller('manageController', manageController);
 
-    manageController.$inject = ["$scope"];
+    manageController.$inject = ["$scope", 'ManageService'];
 
     function manageController($scope) {
         $scope.sortAcceptType     = 'date';
         $scope.sortAcceptReverse  = true;
 
-        $scope.toAccept = [
-            {
-                title: 'Square',
-                user: 'User A',
-                date: new Date('06/18/2015')
-            },
-            {
-                title: 'Circle',
-                user: 'User B',
-                date: new Date('08/06/2016')
-            },
-            {
-                title: 'Triangle',
-                user: 'User X',
-                date: new Date('01/18/2015')
-            }
-        ];
+        $scope.toAccept = ManageService.getReceived();
+        console.log($scope.toAccept);
 
         $scope.sortIssuedType     = 'date';
         $scope.sortIssuedReverse  = true;

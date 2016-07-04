@@ -1,6 +1,6 @@
 angular.module('RunBeatApp').factory('ManageService',
-    ['$q', '$timeout', '$http',
-        function ($q, $timeout, $http) {
+    ['$q', '$timeout', '$http', 'currUser',
+        function ($q, $timeout, $http, currUser) {
 
 
             // return available functions for use in the controllers
@@ -15,7 +15,10 @@ angular.module('RunBeatApp').factory('ManageService',
             });
 
             function getReceived(){
-                /*TODO*/
+                var user = currUser.getUserID();
+                return $http.get(BASEURL + '/challenge/getChallenges_1', {
+                    receiver: user
+                });
             }
 
             function getSent(){

@@ -60,7 +60,7 @@ angular.module('RunBeatApp')
                 access: {restricted: true}
             })
             .state('create2',{
-                url: '/create2',/*TODO: Change*/
+                url: '/create',
                 templateUrl: 'app/components/create/challenge/challenge.view.html',
                 controller: 'challengeController',
                 access: {restricted: true}

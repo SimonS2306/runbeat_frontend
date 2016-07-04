@@ -6,10 +6,13 @@
     function createShareService() {
 
         this.userID = '';
+        this.username = '';
 
         return ({
             setUserID: setUserID,
-            getUserID: getUserID
+            getUserID: getUserID,
+            setUserName: setUserName,
+            getUserName: getUserName
         });
 
         function setUserID(userID) {
@@ -19,6 +22,14 @@
         }
         function getUserID() {
             return this.userID;
+        }
+
+        function setUserName(username) {
+            this.username = username;
+            return;
+        }
+        function getUserName() {
+            return this.username;
         }
     }
 })();

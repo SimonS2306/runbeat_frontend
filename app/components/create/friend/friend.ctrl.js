@@ -4,12 +4,9 @@
     angular.module('RunBeatApp')
         .controller('friendController', friendController);
 
-    friendController.$inject = ["$scope", "$location", "createShare"];
+    friendController.$inject = ["$scope", "$state", "createShare"];
 
-    function friendController($scope, $location, createShare) {
-
-
-        $scope.activeTab = 'create';
+    function friendController($scope, $state, createShare) {
 
         $scope.friends = [
             {
@@ -36,9 +33,10 @@
             }
         ];
 
-        $scope.challenge = function (userID) {
+        $scope.challenge = function (userID, username) {
             console.log('Entered function', userID);
             createShare.setUserID(userID);
+            createShare.setUserName(username);
         };
     }
 })();

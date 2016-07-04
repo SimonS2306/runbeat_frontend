@@ -8,7 +8,8 @@
 
     function challengeController($scope, createShare) {
 
-        $scope.user = createShare.getID();
+        $scope.user = createShare.getUserName();
+        $scope.userID = createShare.getUserID();
 
         $scope.challenges = [
             {
