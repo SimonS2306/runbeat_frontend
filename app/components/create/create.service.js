@@ -3,7 +3,7 @@
     angular.module('RunBeatApp')
         .service('createShare', createShareService);
 
-    function createShareService() {
+    function createShareService(BASEURL, $http, currUser) {
 
         this.userID = '';
         this.username = '';
@@ -12,7 +12,8 @@
             setUserID: setUserID,
             getUserID: getUserID,
             setUserName: setUserName,
-            getUserName: getUserName
+            getUserName: getUserName,
+            issue: issue
         });
 
         function setUserID(userID) {
@@ -30,6 +31,14 @@
         }
         function getUserName() {
             return this.username;
+        }
+
+        function issue(challengeID){
+            return $http.post(BASEURL + '/api/challenges', {
+                challengeID: challengeID,
+                senderID: currUser.getUserID(),
+                receiverID: this.userID
+            });
         }
     }
 })();

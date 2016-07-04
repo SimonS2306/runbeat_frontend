@@ -37,5 +37,9 @@
                 id: 3215
             }
         ];
+
+        $scope.issue = function (challengeID) {
+            createShare.issue(challengeID);
+        };
     }
 })();
