@@ -8,19 +8,15 @@ angular.module('RunBeatApp')
                     $scope.login = login;
 
                     function login() {
-                        currUser.login($scope.username, $scope.password).then(function (response) {
-                            console.log('Hello');
-                            if(response.status == 200){
-                                $location.path('/');
-                                console.log('Success');
-                            } else if (response.status == 400 || response.status == 401) {
-                                $scope.errorText = "Wrong username or password.";
+                        currUser.login($scope.username, $scope.password).then(function successCallback(response) {
+                            $location.path('/');
+                        }, function errorCallback(response) {
+                            if (response.status == 400 || response.status == 401) {
+                                $scope.errorText = "Wrong username or password";
                                 $scope.error = true;
-                                console.log($scope.errorText);
                             } else {
-                                $scope.errorText = "An unknown error occured. please try again later.";
+                                $scope.errorText = "An unknown error occured. Please try again later.";
                                 $scope.error = true;
-                                console.log($scope.errorText);
                             }
                         });
                     }

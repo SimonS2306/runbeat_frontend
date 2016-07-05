@@ -1,6 +1,6 @@
 angular.module('RunBeatApp').factory('ManageService',
-    ['$q', '$timeout', '$http', 'currUser',
-        function ($q, $timeout, $http, currUser) {
+    ['BASEURL','$q', '$timeout', '$http', 'currUser',
+        function (BASEURL, $q, $timeout, $http, currUser) {
 
 
             // return available functions for use in the controllers
@@ -10,39 +10,48 @@ angular.module('RunBeatApp').factory('ManageService',
                 getOngoing: getOngoing,
                 getHistory: getHistory,
                 acceptRequest: acceptRequest,
-                cancelRequest: cancelRequest,
                 deleteChallenge: deleteChallenge
             });
 
             function getReceived(){
                 var user = currUser.getUserID();
-                return $http.get(BASEURL + '/challenge/getChallenges_1', {
+                return $http.get(BASEURL + '/api/challenges1', {
                     receiver: user
                 });
             }
 
             function getSent(){
-                /*TODO*/
+                var user = currUser.getUserID();
+                return $http.get(BASEURL + '/api/challenges2', {
+                    sender: user
+                });
             }
 
             function getOngoing(){
-                /*TODO*/
+                var user = currUser.getUserID();
+                return $http.get(BASEURL + '/api/challenges3', {
+                    sender: user,
+                    receiver: user
+                });
             }
 
             function getHistory(){
-                /*TODO*/
+                var user = currUser.getUserID();
+                return $http.get(BASEURL + '/api/challenges4', {
+                    sender: user,
+                    receiver: user
+                });
             }
 
-            function acceptRequest(){
-                /*TODO*/
+            /*TODO 1: Expand get functions to receiver = user as well since some challenges will be lost otherwise!!!*/
+            /*TODO 2: The difference between get Sent and Received is where the corresponding user is listed -> no number differenciation.*/
+
+            function acceptRequest(challengeID){
+                return $http.put(BASEURL + '/api/update3/' + challengeID, {});
             }
 
-            function cancelRequest(){
-                /*TODO*/
-            }
-
-            function deleteChallenge(){
-                /*TODO*/
+            function deleteChallenge(challengeID){
+                return $http.delete(BASEURL + '/api/challenges/' + challengeID, {});
             }
         }
     ]);

@@ -14,7 +14,7 @@
 
         <br>
 
-        <table class="table table-striped">
+        <table class="table table-striped" ng-show="toAccept.length">
             <thead>
                 <tr>
                     <th>
@@ -47,11 +47,12 @@
                     <th>{{accept.title}}</th>
                     <th>{{accept.user}}</th>
                     <th>{{accept.date | date}}</th>
-                    <th><a>Accept</a></th>
+                    <th><a id="{{accept.challengeID}}" ng-click="acceptChallenge(accept.challengeID)">Accept</a></th>
                     <th><a>Decline</a></th>
                 </tr>
             </tbody>
         </table>
+        <p ng-show="!toAccept.length" class="text-center"><b>Currently you have no open challenge request.</b></p>
     </div>
 
     <br>
@@ -66,7 +67,7 @@
 
         <br>
 
-        <table class="table table-striped">
+        <table class="table table-striped" ng-show="myIssued.length">
             <thead>
             <tr>
                 <th>
@@ -102,6 +103,7 @@
             </tr>
             </tbody>
         </table>
+        <p ng-show="!myIssued.length" class="text-center"><b>Currently you have no open challenges to friends.</b></p>
     </div>
 
     <br>
@@ -116,7 +118,7 @@
 
         <br>
 
-        <table class="table table-striped">
+        <table class="table table-striped" ng-show="onGoing.length">
             <thead>
             <tr>
                 <th>
@@ -168,6 +170,7 @@
             </tr>
             </tbody>
         </table>
+        <p ng-show="!onGoing.length" class="text-center"><b>Currently you have no ongoing challenges.</b></p>
     </div>
 
     <br>
@@ -182,7 +185,7 @@
 
         <br>
 
-        <table class="table table-striped">
+        <table class="table table-striped" ng-show="completed.length">
             <thead>
             <tr>
                 <th>
@@ -230,5 +233,6 @@
             </tr>
             </tbody>
         </table>
+        <p ng-show="!completed.length" class="text-center"><b>You have not finished any challenges yet.</b></p>
     </div>
 </div>
