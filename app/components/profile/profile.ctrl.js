@@ -4,24 +4,15 @@ angular.module('RunBeatApp').controller('profileController',
 
             ProfileService.getProfile().then(function successCallback(response) {
                     $scope.user = response.data;
-                    console.log($scope.user);
+                    $scope.user.dateOfBirth = $scope.user.dateOfBirth != null ? new Date($scope.user.dateOfBirth) : '';
+
                 }, function errorCallback(response) {
                     console.log(response.error);
             });
-            
-            // { username: 'efgh',
-            //                 profilePicture: 'assets/img/Profile.jpg',
-            //                 credo: 'Carpe Diem',
-            //                 email: 'hello@hello.com',
-            //                 birthday: '',
-            //                 data : ''
-            // };
+
             $scope.updateProfile=function() {
-                console.log($scope.user);
                 ProfileService.setProfile($scope.user).then(function successCallback(response) {
-                    console.log(response.data);
                 }, function errorCallback(response) {
-                    console.log('Failure');
                 });
             }
                 /*TODO: Picture code throws errors -> commented out
@@ -32,12 +23,7 @@ angular.module('RunBeatApp').controller('profileController',
                     console.log('inside file data');
                     $scope.user.data=data1;
                 }
-                r.readAsBinaryString(f);
-             /*Old
-                console.log($scope.user);
-                var myRes=$http.post('http://localhost:3000/user/update',$scope.user);
-                console.log('this is res '+myRes);
-            };*/
+                r.readAsBinaryString(f);*/
         }
     ]);
 

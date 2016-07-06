@@ -1,6 +1,6 @@
 angular.module('RunBeatApp').factory('FriendService',
-    ['$q', '$timeout', '$http',
-        function ($q, $timeout, $http) {
+    ['$q', '$timeout', '$http', 'currUser',
+        function ($q, $timeout, $http, currUser) {
 
 
             // return available functions for use in the controllers
@@ -15,13 +15,15 @@ angular.module('RunBeatApp').factory('FriendService',
                 unfriend: unfriend
             });
 
-
+            /*TODO: Differentiate Sent/Received + check functionality*/
             function getFriends() {
-                /*TODO*/
+                var username = currUser.getUsername();
+                return $http.get(BASEURL + '/user/friends/' + username, {});
             }
 
             function getReceived(){
-                /*TODO*/
+                var username = currUser.getUsername();
+                return $http.get(BASEURL + '/user/allfriendreqs/' + username, {});
             }
 
             function getSent(){
@@ -32,20 +34,28 @@ angular.module('RunBeatApp').factory('FriendService',
                 /*TODO*/
             }
 
-            function issueRequest(){
-                /*TODO*/
+            function issueRequest(issuedBy, issuedTo){
+                return $http.post(BASEURL + '/user/friendreq', {
+                    sender: issuedBy,
+                    receiver: issuedTo
+                });
             }
 
-            function acceptRequest(){
-                /*TODO*/
+            function acceptRequest(requestID){
+                return $http.put(BASEURL + '/user/friendreq' + requestID, {});
             }
 
-            function cancelRequest(){
-                /*TODO*/
+            function cancelRequest(requestID){
+                return $http.delete(BASEURL + '/user/friendreq' + requestID, {});
             }
 
-            function unfriend(){
-                /*TODO*/
+            /*TODO: Deleted friend == ID or username??*/
+            function unfriend(friendID){
+                var user = currUser.getUsername();
+                return $http.delete(BASEURL + '/user/friendreq', {
+                    username: user,
+                    deletedfriend: friendID
+                });
             }
         }
     ]);
