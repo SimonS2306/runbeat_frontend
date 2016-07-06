@@ -20,7 +20,7 @@
                         </fieldset>
                         <fieldset class="form-group">
                             <label for="Birthdate-Profile">Birthday</label>
-                            <input type="date" class="form-control" id="Birthdate-Profile" ng-model="user.date">
+                            <input type="date" class="form-control" id="Birthdate-Profile" ng-model="user.dateOfBirth">
                         </fieldset>
                     </div>
                     <div class="col-md-1"></div>
@@ -43,9 +43,11 @@
 
             </div>
             <div class="panel-footer clearfix profile-panel">
-                <input class="pull-right">
+                <div class="pull-right">
+                    <input hidden disabled ng-model="user._id"></div>
                     <button type="submit" class="btn btn-primary" ng-click="updateProfile()">Submit</button>
-                    <a ui-sref="#" class="btn btn-default">Cancel</a>
+                    <a ui-sref="profile" class="btn btn-default">Cancel</a>
+                </div>
             </div>
         </form>
     </div>

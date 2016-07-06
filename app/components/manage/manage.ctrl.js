@@ -11,33 +11,39 @@
         $scope.sortAcceptType     = 'date';
         $scope.sortAcceptReverse  = true;
 
-        /*Don't delete test data
+        /*Don't delete test data*/
         $scope.toAccept = [
             {
                 title: 'Square',
                 user: 'User A',
                 date: new Date('06/18/2015'),
-                ID: '3214'
+                ID: '3214',
+                accepted: false,
+                deleted: false
             },
             {
                 title: 'Circle',
                 user: 'User B',
                 date: new Date('08/06/2016'),
-                ID: '62425'
+                ID: '62425',
+                accepted: false,
+                deleted: false
             },
             {
                 title: 'Triangle',
                 user: 'User X',
                 date: new Date('01/18/2015'),
-                ID: '75486'
+                ID: '75486',
+                accepted: false,
+                deleted: false
             }
-        ];*/
+        ];
         
-        ManageService.getReceived().then(function successCallback(response) {
+        /*ManageService.getReceived().then(function successCallback(response) {
             $scope.toAccept = fromJson(response.body);
         }, function errorCallback(response) {
             $scope.toAccept = '';
-        });
+        });*/
 
         $scope.sortIssuedType     = 'date';
         $scope.sortIssuedReverse  = true;
@@ -66,11 +72,9 @@
             $scope.completed = '';
         });
 
-        $scope.acceptChallenge = function (challengeID) {
-            var buttonID = '#' + challengeID;
-            $(buttonID).disable();
-
-            /*TODO: Disable button + color it -> feedback*/
+        $scope.acceptChallenge = function (accepted) {
+            accepted = true;
+            console.log(accepted);
         };
 
         $scope.delete = function (challengeID) {

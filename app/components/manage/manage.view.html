@@ -47,7 +47,7 @@
                     <th>{{accept.title}}</th>
                     <th>{{accept.user}}</th>
                     <th>{{accept.date | date}}</th>
-                    <th><a id="{{accept.challengeID}}" ng-click="acceptChallenge(accept.challengeID)">Accept</a></th>
+                    <th><a class="btn" ng-disabled="accept.accepted" ng-click="acceptChallenge(accept.accepted)">Accept</a></th>
                     <th><a>Decline</a></th>
                 </tr>
             </tbody>
