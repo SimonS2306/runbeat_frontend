@@ -9,6 +9,11 @@ angular.module('RunBeatApp')
         $scope.register = register;
 
         function register() {
+            if($scope.password!=$scope.passwordConfirm){
+                $scope.errorMessage = "Passwords Do Not Match!! Try Again";
+                $scope.error = true;
+                return;
+            }
             currUser.register($scope.username, $scope.password).then(function successCallback(response) {
                 $location.path('/');
             }, function errorCallback(response) {
