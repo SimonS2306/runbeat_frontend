@@ -5,8 +5,8 @@ angular.module('RunBeatApp').controller('profileController',
             ProfileService.getProfile().then(function successCallback(response) {
                     $scope.user = response.data;
                     $scope.user.dateOfBirth = $scope.user.dateOfBirth != null ? new Date($scope.user.dateOfBirth) : '';
-
-                }, function errorCallback(response) {
+                console.log($scope.user);
+            }, function errorCallback(response) {
                     console.log(response.error);
                 if(response.status==500){
                     $scope.errorText="OOps Something Went Wrong";
@@ -25,6 +25,7 @@ angular.module('RunBeatApp').controller('profileController',
             // });
 
             $scope.updateProfile=function() {
+                console.log($scope.user);
                 ProfileService.setProfile($scope.user).then(function successCallback(response) {
                     $location.path('/profile');
                     if(response.status==200){
