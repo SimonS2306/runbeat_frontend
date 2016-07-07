@@ -23,10 +23,13 @@
 
 <br>
 <div class="row">
-    <div  ng-repeat="friend in friends | filter : filter.username | orderBy : filter.OrderBy">
+    <div  ng-repeat="friend in friends | filter : filter.username | orderBy : filter.OrderBy" ng-show="gotFriends">
         <div class="clearfix" ng-if="$index % 3 == 0"></div>
         <div class="col-md-4">
             <div ng-include='"app/components/friendsearch/tabs/friendItem.view.html"' onload="loaded = true"></div></div>
         </div>
+    </div>
+    <div class="text-center" ng-hide="gotFriends">
+        <p><b>Search for your friends in the search panel, to send them friend requests.</b></p>
     </div>
 </div>

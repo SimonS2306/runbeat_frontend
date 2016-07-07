@@ -22,13 +22,13 @@
     <div class="tab-content">
         <div ng-switch="activeTab">
             <div ng-switch-when='friends'>
-                 <div ng-include='"app/components/friendsearch/tabs/friends.view.html"' onload="loaded = true"></div></div>
+                 <div ng-include='"app/components/friendsearch/tabs/friends.view.html"'></div></div>
             <div ng-switch-when='received'>
-                <div ng-include='"app/components/friendsearch/tabs/received.view.html"' onload="loaded = true"></div></div>
+                <div ng-include='"app/components/friendsearch/tabs/received.view.html"'></div></div>
             <div ng-switch-when='sent'>
-                <div ng-include='"app/components/friendsearch/tabs/sent.view.html"' onload="loaded = true"></div></div>
+                <div ng-include='"app/components/friendsearch/tabs/sent.view.html"'></div></div>
             <div ng-switch-when='search'>
-                <div ng-include='"app/components/friendsearch/tabs/search.view.html"' onload="loaded = true"></div></div>
+                <div ng-include='"app/components/friendsearch/tabs/search.view.html"'></div></div>
         </div>
     </div>
 

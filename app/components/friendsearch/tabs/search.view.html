@@ -1,1 +1,27 @@
-<h3>Search</h3>
+<br>
+<div class="row">
+    <form>
+        <div class="col-sm-6">
+            <fieldset class="form-group">
+                <input type="text" class="form-control field-colour" id="InputSearchUser-Friend" placeholder="Search for a user" ng-model="userToSearch">
+            </fieldset>
+        </div>
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-primary" ng-click="searchUser(userToSearch)">Search</button>
+        </div>
+    </form>
+</div>
+
+<hr>
+
+<br>
+<div class="row">
+    <div  ng-repeat="friend in searched" ng-show="foundSearched">
+        <div class="clearfix" ng-if="$index % 3 == 0"></div>
+        <div class="col-md-4">
+            <div ng-include='"app/components/friendsearch/tabs/friendItem.view.html"' onload="loaded = true"></div></div>
+    </div>
+    <div class="text-center" ng-hide="foundSearched">
+        <p><b>No users were found matching the input criteria.</b></p>
+    </div>
+</div>

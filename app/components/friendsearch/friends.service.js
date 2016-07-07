@@ -1,6 +1,6 @@
 angular.module('RunBeatApp').factory('FriendService',
-    ['$q', '$timeout', '$http', 'currUser',
-        function ($q, $timeout, $http, currUser) {
+    ['BASEURL', '$q', '$timeout', '$http', 'currUser',
+        function (BASEURL, $q, $timeout, $http, currUser) {
 
 
             // return available functions for use in the controllers
@@ -17,21 +17,22 @@ angular.module('RunBeatApp').factory('FriendService',
 
             /*TODO: Differentiate Sent/Received + check functionality*/
             function getFriends() {
-                var username = currUser.getUsername();
+                var username = currUser.username();
                 return $http.get(BASEURL + '/user/friends/' + username, {});
             }
 
             function getReceived(){
-                var username = currUser.getUsername();
+                var username = currUser.username();
                 return $http.get(BASEURL + '/user/allfriendreqs/' + username, {});
             }
 
             function getSent(){
-                /*TODO*/
+                var username = currUser.username();
+                return $http.get(BASEURL + '/user/allfriendreqs/' + username, {});
             }
 
-            function searchUsers(){
-                /*TODO*/
+            function searchUsers(searchUser){
+                return $http.get(BASEURL + '/user/searchUser/' + searchUser, {});
             }
 
             function issueRequest(issuedBy, issuedTo){
@@ -51,7 +52,7 @@ angular.module('RunBeatApp').factory('FriendService',
 
             /*TODO: Deleted friend == ID or username??*/
             function unfriend(friendID){
-                var user = currUser.getUsername();
+                var user = currUser.username();
                 return $http.delete(BASEURL + '/user/friendreq', {
                     username: user,
                     deletedfriend: friendID

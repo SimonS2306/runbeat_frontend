@@ -10,7 +10,7 @@ angular.module('RunBeatApp')
 
         function register() {
             if($scope.password!=$scope.passwordConfirm){
-                $scope.errorMessage = "Passwords Do Not Match!! Try Again";
+                $scope.errorMessage = "Passwords do not match. Please make sure both passwords are the same.";
                 $scope.error = true;
                 return;
             }
