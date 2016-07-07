@@ -10,10 +10,24 @@ angular.module('RunBeatApp').controller('profileController',
                     console.log(response.error);
             });
 
+            // ProfileService.getProfilePicture().then(function successCallback(response){
+            //     $scope.user.profilePicture=response.data;
+            // },function errorCallback(){
+            //     console.log(response.error);
+            // });
+
             $scope.updateProfile=function() {
                 ProfileService.setProfile($scope.user).then(function successCallback(response) {
                 }, function errorCallback(response) {
                 });
+            }
+            $scope.setProfilePicture=function(){
+                ProfileService.setProfilePicture().then(function successCallback(response){
+
+                },function errorCallback(response) {
+
+                });
+
             }
                 /*TODO: Picture code throws errors -> commented out
                 var f = document.getElementById('InputFile').files[0],
@@ -36,7 +50,9 @@ angular.module('RunBeatApp').factory('ProfileService',
             // return available functions for use in the controllers
             return ({
                 getProfile: getProfile,
-                setProfile: setProfile
+                setProfile: setProfile,
+                getProfilePicture:getProfilePicture,
+                setProfilePicture:setProfilePicture
             });
 
             function getProfile() {
@@ -47,6 +63,16 @@ angular.module('RunBeatApp').factory('ProfileService',
             function setProfile(userData) {
                 var ID = currUser.getUserID();
                 return $http.put(BASEURL + '/user/update/', userData);
+            }
+            function setProfilePicture(){
+                var userName=currUser.username();
+                console.log('USERNAME'+userName);
+                return $http.post(BASEURL + '/user/image/upload/' + userName, {});
+            }
+
+            function getProfilePicture(){
+                var ID = currUser.getUserID();
+                return $http.get(BASEURL + '/user/image/' + ID, {});
             }
 
 

@@ -26,7 +26,8 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-4 picture-frame">
                         <img ng-src="{{user.profilePicture}}" class="size-picture"/>
-                        <input type="file" class="form-control-file" id="InputFile" ng-model="user.profilePicture">
+                        <input type="file" class="form-control-file" name="profileImage">
+                        <button type="submit" ng-click="setProfilePicture()">Update Picture</button>
                     </div>
                     <div class="col-md-1"></div>
                 </div>
