@@ -4,9 +4,9 @@
     angular.module('RunBeatApp')
         .controller('friendController', friendController);
 
-    friendController.$inject = ["$scope", "createShare"];
+    friendController.$inject = ["$scope", "createShare", "FriendService"];
 
-    function friendController($scope, createShare) {
+    function friendController($scope, createShare, FriendService) {
 
         $scope.friends = [
             {
