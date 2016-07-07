@@ -3,28 +3,31 @@
     <h2 class="text-center">Select a Friend to Challenge</h2>
 
     <hr>
-        <div class="row">
-            <div ng-repeat="friend in friends">
-                <div class="clearfix" ng-if="$index % 3 == 0"></div>
-                <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body ">
-                            <div class="row">
-                                <div class="col-sm-3 visible-md visible-lg">
-                                    <img ng-src="{{friend.image}}" class="menuItem-large">
-                                </div>
-                                <div class="col-sm-9 text-center visible-md visible-lg">
-                                    <p><b>{{friend.username}}</b></p>
-                                    <button class="btn btn-primary" ng-click="challenge(friend.username)" ui-sref="create2">Challenge</button>
-                                </div>
-                                <div class="text-center visible-xs visible-sm">
-                                    <p><b>{{friend.username}}</b></p>
-                                    <button class="btn btn-primaryn" ng-click="challenge(friend.username)" ui-sref="create2">Challenge</button>
-                                </div>
+    <div class="row">
+        <div ng-repeat="friend in friends" ng-show="friends.length>0">
+            <div class="clearfix" ng-if="$index % 3 == 0"></div>
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-body ">
+                        <div class="row">
+                            <div class="col-sm-3 visible-md visible-lg">
+                                <img ng-src="{{friend.image}}" class="menuItem-large">
+                            </div>
+                            <div class="col-sm-9 text-center visible-md visible-lg">
+                                <p><b>{{friend.username}}</b></p>
+                                <button class="btn btn-primary" ng-click="challenge(friend.username)" ui-sref="create2">Challenge</button>
+                            </div>
+                            <div class="text-center visible-xs visible-sm">
+                                <p><b>{{friend.username}}</b></p>
+                                <button class="btn btn-primaryn" ng-click="challenge(friend.username)" ui-sref="create2">Challenge</button>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
-
+        <div class="text-center" ng-hide="friends.length>0">
+            <p><b>Your friendlist is currently empty. To add friends, search in the friends panel for users you know and send them friend requests.</b></p>
+        </div>
+    </div>
 </div>

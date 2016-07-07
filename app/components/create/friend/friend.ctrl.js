@@ -33,6 +33,20 @@
             }
         ];
 
+        /*
+         FriendService.getFriends().then(function successCallback(response){
+         if(response.data.length > 0){
+         $scope.gotFriends = true;
+         $scope.friends = response.data;
+         }else{
+         $scope.gotFriends = false;
+         }
+         },function errorCallback(response) {
+         $scope.gotFriends = false;
+         });
+         */
+        
+
         $scope.challenge = function (username) {
             createShare.setUserName(username);
         };
