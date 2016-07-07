@@ -29,6 +29,8 @@
     </div>
     <hr>
 
+    <div ng-show="error" class="alert alert-danger">{{errorText}}</div>
+
     <div ng-repeat="challenge in challenges | filter : filter | orderBy : 'title'">
         <br>
         <div ng-class="{dropup: challenge.open}">
@@ -44,12 +46,12 @@
 
             <div class="row">
                 <div class="col-sm-8">
-                    <p>{{challenge.instruction}}</p>
+                    <p>{{challenge.instruction}} {{$index}}</p>
                 </div>
                 <div class="col-sm-4 text-center">
                     <img class="size-picture" ng-src="{{challenge.image}}">
                     <br>
-                    <button class="btn btn-primary issue" ng-click="issue(challenge.id)">Issue Challenge</button>
+                    <button class="btn btn-primary issue" ng-click="issue(challenge, challenge.index)">Issue Challenge</button>
                 </div>
             </div>
 

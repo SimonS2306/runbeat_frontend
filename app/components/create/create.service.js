@@ -9,21 +9,10 @@
         this.username = '';
 
         return ({
-            setUserID: setUserID,
-            getUserID: getUserID,
             setUserName: setUserName,
             getUserName: getUserName,
             issue: issue
         });
-
-        function setUserID(userID) {
-            this.userID = userID;
-            console.log('Saved in ID', this.userID);
-            return;
-        }
-        function getUserID() {
-            return this.userID;
-        }
 
         function setUserName(username) {
             this.username = username;
@@ -33,9 +22,10 @@
             return this.username;
         }
 
-        function issue(challengeID){
+        function issue(title, index){
             return $http.post(BASEURL + '/api/challenges', {
-                challengeID: challengeID,
+                title: title,
+                index: index,
                 senderID: currUser.getUserID(),
                 receiverID: this.userID
             });
