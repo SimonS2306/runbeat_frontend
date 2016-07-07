@@ -1,6 +1,6 @@
 angular.module('RunBeatApp').factory('FriendService',
-    ['$q', '$timeout', '$http', 'currUser',
-        function ($q, $timeout, $http, currUser) {
+    ['BASEURL', '$q', '$timeout', '$http', 'currUser',
+        function (BASEURL, $q, $timeout, $http, currUser) {
 
 
             // return available functions for use in the controllers
@@ -30,8 +30,8 @@ angular.module('RunBeatApp').factory('FriendService',
                 /*TODO*/
             }
 
-            function searchUsers(){
-                /*TODO*/
+            function searchUsers(searchUser){
+                return $http.get(BASEURL + '/user/searchUser/' + searchUser, {});
             }
 
             function issueRequest(issuedBy, issuedTo){

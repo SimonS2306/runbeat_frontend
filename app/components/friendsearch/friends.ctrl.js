@@ -4,9 +4,9 @@
     angular.module('RunBeatApp')
         .controller('friendsController', friendsController);
 
-    friendsController.$inject = ["$scope"];
+    friendsController.$inject = ["$scope", "FriendService"];
 
-    function friendsController($scope) {
+    function friendsController($scope, FriendService) {
 
         $scope.activeTab = 'friends';
 
@@ -37,5 +37,14 @@
                 username: 'simon'
             }
         ];
+
+        $scope.searchUser = function (userToSearch) {
+            console.log(userToSearch);
+            FriendService.searchUsers(userToSearch).then(function successCallback(response){
+                console.log(response.data);
+            },function errorCallback(response) {
+                console.log(response.error);
+            });
+        }
     }
 })();
