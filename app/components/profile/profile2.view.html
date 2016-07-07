@@ -6,7 +6,7 @@
                 <h1 class="text-center">My Personal Space</h1>
                 <br>
 
-
+                <div ng-show="error" class="alert alert-danger">{{errorText}}</div>
                 <div class="row">
                     <div class="col-md-6">
                         <fieldset class="form-group">
@@ -25,9 +25,8 @@
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-4 picture-frame">
-                        <img ng-src="{{user.profilePicture}}" class="size-picture"/>
-                        <input type="file" class="form-control-file" name="profileImage">
-                        <button type="submit" ng-click="setProfilePicture()">Update Picture</button>
+                        <img ng-src="http://127.0.0.1:3000/files?{{user.profileImagePath}}" class="size-picture"/>
+                        <input type="file" class="form-control-file" file-upload="user.file" name="profileImage">
                     </div>
                     <div class="col-md-1"></div>
                 </div>

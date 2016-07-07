@@ -8,6 +8,14 @@ angular.module('RunBeatApp').controller('profileController',
 
                 }, function errorCallback(response) {
                     console.log(response.error);
+                if(response.status==500){
+                    $scope.errorText="OOps Something Went Wrong";
+                    $scope.error=true;
+                }else if(response.status==400){
+                    $scope.errorText="Well That is Embarrassing!! Something Went Wrong";
+                    $scope.error=true;
+                }
+
             });
 
             // ProfileService.getProfilePicture().then(function successCallback(response){
@@ -18,32 +26,33 @@ angular.module('RunBeatApp').controller('profileController',
 
             $scope.updateProfile=function() {
                 ProfileService.setProfile($scope.user).then(function successCallback(response) {
+                    $location.path('/profile');
+                    if(response.status==200){
+                        $scope.errorText="Profile Update Successful!!";
+                        $scope.error=true;
+                    }
                 }, function errorCallback(response) {
+                    if(response.status==500){
+                        $scope.errorText="OOps Something Went Wrong";
+                        $scope.error=true;
+                    }
                 });
             }
             $scope.setProfilePicture=function(){
                 ProfileService.setProfilePicture().then(function successCallback(response){
-
                 },function errorCallback(response) {
-
+                    if(response.status==500){
+                        $scope.errorText="OOps Something Went Wrong";
+                        $scope.error=true;
+                    }
                 });
-
             }
-                /*TODO: Picture code throws errors -> commented out
-                var f = document.getElementById('InputFile').files[0],
-                r = new FileReader();
-                r.onloadend = function(e){
-                    var data1 = e.target.result;
-                    console.log('inside file data');
-                    $scope.user.data=data1;
-                }
-                r.readAsBinaryString(f);*/
         }
     ]);
 
 angular.module('RunBeatApp').factory('ProfileService',
-    ['BASEURL', '$q', '$timeout', '$http', 'currUser',
-        function (BASEURL, $q, $timeout, $http, currUser) {
+    ['BASEURL', '$q', '$timeout', '$http','multipartForm','currUser',
+        function (BASEURL, $q, $timeout, $http,multipartForm, currUser) {
 
             var user = [];
 
@@ -51,18 +60,18 @@ angular.module('RunBeatApp').factory('ProfileService',
             return ({
                 getProfile: getProfile,
                 setProfile: setProfile,
-                getProfilePicture:getProfilePicture,
-                setProfilePicture:setProfilePicture
+                // getProfilePicture:getProfilePicture,
+                // setProfilePicture:setProfilePicture
             });
-
             function getProfile() {
                 var ID = currUser.getUserID();
                 return $http.get(BASEURL + '/user/getUser/' + ID, {});
             }
 
             function setProfile(userData) {
-                var ID = currUser.getUserID();
-                return $http.put(BASEURL + '/user/update/', userData);
+                return multipartForm.put(BASEURL + '/user/update/', userData);
+                //var ID = currUser.getUserID();
+                //return $http.put(BASEURL + '/user/update/', userData);
             }
             function setProfilePicture(){
                 var userName=currUser.username();
