@@ -11,7 +11,7 @@
         $scope.sortAcceptType     = 'date';
         $scope.sortAcceptReverse  = true;
 
-        /*Don't delete test data*/
+        /*Don't delete test data
         $scope.toAccept = [
             {
                 title: 'Square',
@@ -37,19 +37,19 @@
                 accepted: false,
                 deleted: false
             }
-        ];
+        ];*/
         
-        /*ManageService.getReceived().then(function successCallback(response) {
-            $scope.toAccept = fromJson(response.body);
+        ManageService.getReceived().then(function successCallback(response) {
+            $scope.toAccept = response.body;
         }, function errorCallback(response) {
             $scope.toAccept = '';
-        });*/
+        });
 
         $scope.sortIssuedType     = 'date';
         $scope.sortIssuedReverse  = true;
 
         ManageService.getSent().then(function successCallback(response) {
-            $scope.myIssued = fromJson(response.body);
+            $scope.myIssued = response.body;
         }, function errorCallback(response) {
             $scope.myIssued = '';
         });
@@ -58,7 +58,7 @@
         $scope.sortGoingReverse  = false;
 
         ManageService.getSent().then(function successCallback(response) {
-            $scope.onGoing = fromJson(response.body);
+            $scope.onGoing = response.body;
         }, function errorCallback(response) {
             $scope.onGoing = '';
         });
@@ -67,18 +67,33 @@
         $scope.sortCompletedReverse  = false;
 
         ManageService.getSent().then(function successCallback(response) {
-            $scope.completed = fromJson(response.body);
+            $scope.completed = response.body;
         }, function errorCallback(response) {
             $scope.completed = '';
         });
 
-        $scope.acceptChallenge = function (accepted) {
-            accepted = true;
-            console.log(accepted);
+        $scope.acceptChallenge = function (challengeID) {
+            ManageService.acceptChallenge(challengeID).then(function successCallback(response) {
+                $scope.success = true;
+                $scope.error = false;
+                $scope.successMessage = 'The challenge was successfully accepted.';
+            }, function errorCallback(response) {
+                $scope.success = false;
+                $scope.error = true;
+                $scope.errorMessage = 'Something went wrong. Please try later again.';
+            });
         };
 
         $scope.delete = function (challengeID) {
-            /*TODO: Disable button + color it -> feedback*/
+            ManageService.deleteChallenge(challengeID).then(function successCallback(response) {
+                $scope.success = true;
+                $scope.error = false;
+                $scope.successMessage = 'The challenge was successfully declined/ deleted.';
+            }, function errorCallback(response) {
+                $scope.success = false;
+                $scope.error = true;
+                $scope.errorMessage = 'Something went wrong. Please try later again.';
+            });
         };
     }
 })();

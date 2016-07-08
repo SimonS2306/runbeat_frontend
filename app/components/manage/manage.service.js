@@ -42,10 +42,7 @@ angular.module('RunBeatApp').factory('ManageService',
                     receiver: user
                 });
             }
-
-            /*TODO 1: Expand get functions to receiver = user as well since some challenges will be lost otherwise!!!*/
-            /*TODO 2: The difference between get Sent and Received is where the corresponding user is listed -> no number differenciation.*/
-
+            
             function acceptRequest(challengeID){
                 return $http.put(BASEURL + '/api/update3/' + challengeID, {});
             }

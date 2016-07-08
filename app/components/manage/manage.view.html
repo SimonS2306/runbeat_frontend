@@ -2,6 +2,9 @@
     <br>
 
     <h2 class="text-center">Manage Challenges</h2>
+
+    <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+    <div ng-show="success" class="alert alert-success">{{successMessage}}</div>
     <br>
 
     <div ng-class="{dropup: showAccept}">
