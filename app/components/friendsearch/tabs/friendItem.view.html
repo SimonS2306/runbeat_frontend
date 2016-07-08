@@ -22,6 +22,9 @@
             <div class="modal-body">
                 <div class="row">
 
+                    <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+                    <div ng-show="success" class="alert alert-success">{{successMessage}}</div>
+
                     <div class="col-md-4 picture-frame">
                         <img ng-src="{{friend.image}}" class="size-picture">
                     </div>
@@ -57,19 +60,19 @@
             <div class="modal-footer">
                 <div ng-switch="activeTab">
                     <div ng-switch-when='friends'>
-                        <button class="btn btn-secondary" ng-click="unfriend(friend.userid)">Unfriend</button> <!--TODO: Open modal for confirmation-->
+                        <button class="btn btn-secondary" ng-click="unfriend(friend.username)">Unfriend</button> <!--TODO: Open modal for confirmation-->
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                     <div ng-switch-when='received'>
-                        <button class="btn btn-primary" ng-click="accept(friend.userid)">Accept</button>
-                        <button class="btn btn-default" ng-click="decline(friend.userid)">Decline</button>
+                        <button class="btn btn-primary" ng-click="accept(friend._id)">Accept</button>
+                        <button class="btn btn-default" ng-click="decline(friend._id)">Decline</button>
                     </div>
                     <div ng-switch-when='sent'>
-                        <button class="btn btn-secondary" ng-click="cancel(friend.userid)">Cancel</button>
+                        <button class="btn btn-secondary" ng-click="decline(friend._id)">Cancel</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                     <div ng-switch-when='search'>
-                        <button class="btn btn-primary" ng-click="sendRequest(friend.userid)">Send Friend Request</button>
+                        <button class="btn btn-primary" ng-click="sendRequest(friend.username)">Send Friend Request</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>

@@ -35,7 +35,8 @@ angular.module('RunBeatApp').factory('FriendService',
                 return $http.get(BASEURL + '/user/searchUser/' + searchUser, {});
             }
 
-            function issueRequest(issuedBy, issuedTo){
+            function issueRequest(issuedTo){
+                var issuedBy =  currUser.username();
                 return $http.post(BASEURL + '/user/friendreq', {
                     sender: issuedBy,
                     receiver: issuedTo
@@ -49,13 +50,12 @@ angular.module('RunBeatApp').factory('FriendService',
             function cancelRequest(requestID){
                 return $http.delete(BASEURL + '/user/friendreq' + requestID, {});
             }
-
-            /*TODO: Deleted friend == ID or username??*/
-            function unfriend(friendID){
+            
+            function unfriend(friendname){
                 var user = currUser.username();
                 return $http.delete(BASEURL + '/user/friendreq', {
                     username: user,
-                    deletedfriend: friendID
+                    deletedfriend: friendname
                 });
             }
         }

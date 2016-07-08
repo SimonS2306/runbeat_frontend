@@ -56,5 +56,42 @@
                 $scope.foundSearched = false;
             });
         }
+
+        $scope.sendRequest = function (friendname) {
+            FriendService.issueRequest(friendname).then(function successCallback(response){
+                $scope.success = true;
+                $scope.error = false;
+                $scope.successMessage = 'You successfully sent a friendrequest.';
+            },function errorCallback(response) {
+                $scope.success = false;
+                $scope.error = true;
+                $scope.errorMessage = 'Something went wrong. Please try later again.';
+            });
+        }
+
+
+        $scope.unfriend = function (friendname) {
+            FriendService.unfriend(friendname).then(function successCallback(response){
+                $scope.success = true;
+                $scope.error = false;
+                $scope.successMessage = 'You successfully unfriended this user.';
+            },function errorCallback(response) {
+                $scope.success = false;
+                $scope.error = true;
+                $scope.errorMessage = 'Something went wrong. Please try later again.';
+            });
+        }
+
+        $scope.cancel = function (requestID) {
+            FriendService.unfriend(requestID).then(function successCallback(response){
+                $scope.success = true;
+                $scope.error = false;
+                $scope.successMessage = 'You successful declined/ canceled this friend request.';
+            },function errorCallback(response) {
+                $scope.success = false;
+                $scope.error = true;
+                $scope.errorMessage = 'Something went wrong. Please try later again.';
+            });
+        }
     }
 })();
